@@ -1,0 +1,45 @@
+#pragma once
+#include <QObject>
+#include <QImage>
+#include <QVariantList>
+#include <memory>
+
+class ViewerController : public QObject {
+    Q_OBJECT
+    Q_PROPERTY(QImage image READ image NOTIFY imageChanged)
+    Q_PROPERTY(QString filePath READ filePath NOTIFY stateChanged)
+    Q_PROPERTY(QString fileName READ fileName NOTIFY stateChanged)
+    Q_PROPERTY(QString directory READ directory NOTIFY stateChanged)
+    Q_PROPERTY(QString status READ status NOTIFY stateChanged)
+    Q_PROPERTY(bool loading READ loading NOTIFY stateChanged)
+    Q_PROPERTY(int currentIndex READ currentIndex NOTIFY stateChanged)
+    Q_PROPERTY(int fileCount READ fileCount NOTIFY stateChanged)
+    Q_PROPERTY(int imageWidth READ imageWidth NOTIFY imageChanged)
+    Q_PROPERTY(int imageHeight READ imageHeight NOTIFY imageChanged)
+    Q_PROPERTY(QVariantList commands READ commands NOTIFY bindingsChanged)
+    Q_PROPERTY(QString boundaryMode READ boundaryMode WRITE setBoundaryMode NOTIFY stateChanged)
+    Q_PROPERTY(QString wheelMode READ wheelMode WRITE setWheelMode NOTIFY stateChanged)
+public:
+    explicit ViewerController(QObject* parent=nullptr);
+    ~ViewerController() override;
+    QImage image() const;
+    QString filePath() const; QString fileName() const; QString directory() const; QString status() const;
+    bool loading() const; int currentIndex() const; int fileCount() const;
+    int imageWidth() const; int imageHeight() const;
+    QVariantList commands() const;
+    QString boundaryMode() const; QString wheelMode() const;
+    Q_INVOKABLE void open(const QString& file);
+    Q_INVOKABLE void next(); Q_INVOKABLE void previous();
+    Q_INVOKABLE void nextFolder(); Q_INVOKABLE void previousFolder();
+    Q_INVOKABLE void trigger(const QString& id);
+    Q_INVOKABLE QString bindingFor(const QString& id) const;
+    Q_INVOKABLE bool setBinding(const QString& id,const QString& sequence);
+    Q_INVOKABLE void resetBindings();
+    void setBoundaryMode(const QString& mode); void setWheelMode(const QString& mode);
+signals:
+    void imageChanged(); void stateChanged(); void bindingsChanged();
+    void viewCommand(const QString& id);
+private:
+    struct Private;
+    std::unique_ptr<Private> d;
+};

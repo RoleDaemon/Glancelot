@@ -1,0 +1,164 @@
+Building a high-performance photo viewer with an optimal User Experience (UX) requires stripping out bloatware: no cloud synchronization, no destructive editing tools, no monolithic database cataloging, and no telemetry. Most existing viewers fail because they either bloat into sluggish asset managers (such as ACDSee or modern XnView) or oversimplify to the point of losing power-user utility (such as default Operating System (OS) viewers).
+
+An optimal photo viewer prioritizes zero-latency rendering, total input customization, and predictable file system navigation. Below is the exhaustive architectural and feature specification for a pure, minimalist image viewer.
+
+---
+
+## 1. Input Architecture and Directory Traversal (Top Priority)
+
+### Total Input and Shortcut Customization
+
+Hardcoded shortcuts are an anti-pattern. Every internal function, toggle, User Interface (UI) panel, and navigation step must be exposed to a unified input engine.
+
+| Input Feature | Technical Specification |
+| --- | --- |
+| **Unified Input Matrix** | Bind any action to arbitrary combinations of keyboard keys, modifier keys (`Ctrl`, `Shift`, `Alt`, `Super`/`Win`), single/double/middle mouse clicks, mouse wheel scroll directions, 4th/5th mouse thumb buttons, and multi-finger trackpad gestures. |
+| **Context-Aware Scopes** | Allow identical keys to trigger different actions depending on the active view state: **Fullscreen View**, **Windowed Canvas**, **Thumbnail Grid**, and **Comparison Mode**. |
+| **Scroll Wheel Matrix** | Dedicated configuration for primary scroll wheel behavior (Cycle Next/Previous Image, Zoom at Cursor, or Pan Vertically) paired with modifier overrides (such as `Ctrl` + `Wheel` to zoom, `Shift` + `Wheel` to pan horizontally). |
+| **Command Palette** | A fuzzy-searchable command overlay (invoked via `Ctrl` + `Shift` + `P`) that exposes every internal function and displays its currently assigned keybind for immediate execution or remapping. |
+| **Chord & Hold Support** | Support both two-step key chords (such as `G` then `F` to jump to the first file) and spring-loaded hold actions (hold a key to toggle a diagnostic overlay, release to restore the normal view). |
+| **Portable Configuration** | Store all keybindings, UI layouts, and preferences in a single, human-readable JavaScript Object Notation (JSON) or Initialization (INI) file for instant backup, version control, and deployment across machines. |
+
+### FastStone-Style Depth-First Directory Traversal
+
+The application must treat the file system as a continuous, navigable tree without forcing the user to back out to a folder browser.
+
+| Traversal Parameter | Required Engineering Behavior |
+| --- | --- |
+| **Tree Walk Algorithm** | Strict depth-first, alphanumeric directory traversal matching the OS file tree hierarchy: **Parent Root** to **Sub-folder 1** to **Sub-folder 2** to **Next Sibling Folder**. |
+| **Directional Landing Index** | **Forward Jump:** Land on index `0` (first valid image of the target folder). **Backward Jump:** Land on index `length - 1` (last valid image of the previous folder) to preserve a continuous linear timeline. |
+| **Folder Boundary Modes** | Configurable per-folder boundary action when pressing standard Next/Previous keys at the end of a folder: **Stop at Boundary**, **Loop Current Folder**, or **Auto-Advance to Next Valid Folder**. |
+| **Empty & Filtered Bypass** | Dynamically evaluate candidate directories against active UI filters. Silently bypass folders containing zero supported media, folders excluded by active file filters, or directories restricted by OS permission errors. |
+| **Filter State Reset** | Automatically clear temporary session filters (such as "Show Tagged Files Only") upon crossing a directory boundary so the user never lands in an artificially empty view. |
+| **Sort Independence** | Maintain strictly alphanumeric folder tree jumps even when files *inside* the active directory are sorted by Modification Date, Exchangeable Image File Format (EXIF) Date Taken, File Size, Random Shuffle, or Image Dimensions. |
+| **Asynchronous Lookahead** | When the user reaches the final three images of a directory, spawn a background worker thread to traverse the directory tree, resolve the next non-empty folder, and pre-decode its target landing image into memory. |
+
+---
+
+## 2. Rendering Engine, Performance, and Caching
+
+A viewer fails its primary purpose if it stutters on 60-megapixel files or stalls over network shares. The rendering pipeline must bypass legacy Central Processing Unit (CPU) bound UI frameworks.
+
+* **Hardware-Accelerated Graphics Processing Unit (GPU) Pipeline:** Render the canvas via DirectX 12, Vulkan, or Metal. All pan, zoom, and rotation transitions must execute at the display's native refresh rate (120Hz, 144Hz, or 240Hz) with zero frame drops.
+* **Sub-100ms Cold Start:** Compile to a native binary with zero heavy runtime initialization. Opening an image from the OS file manager must render the first visible frame in less than 100 milliseconds.
+* **Two-Stage Camera RAW Pipeline:** When opening uncompressed camera RAW files, immediately extract and display the embedded full-resolution Joint Photographic Experts Group (JPEG) preview (taking less than 20 milliseconds), while optionally decoding the raw sensor data in a background thread if requested or when zooming past 100%.
+* **Bidirectional Ring-Buffer Cache:** Utilize available Random Access Memory (RAM) and Video Random Access Memory (VRAM) to pre-decode the next $N$ images and retain the previous $M$ images as uncompressed GPU textures. Dynamically cap memory allocation (for example, up to 40% of free system RAM) to prevent system paging.
+* **Storage-Aware Input/Output (I/O) Throttling:** Detect whether the active path resides on a local Non-Volatile Memory Express (NVMe) Solid State Drive (SSD), a mechanical Hard Disk Drive (HDD), or a Server Message Block (SMB) Network Attached Storage (NAS) share. Adjust concurrent read threads and lookahead depth accordingly to prevent disk thrashing or network saturation.
+
+---
+
+## 3. Minimalist User Interface and Window Management
+
+The interface must remain invisible during standard viewing, dedicating 100% of screen real estate to the image canvas.
+
+* **Zero-Chrome Frameless Mode (qView Style):** Launch with zero title bar, zero menu bar, and zero window borders. Option to make the window geometry dynamically snap to the exact aspect ratio and dimensions of the active image.
+* **Edge-Triggered Auto-Hide HUDs (FastStone Style):** In fullscreen or frameless mode, moving the cursor to the four screen edges summons modular, translucent Heads-Up Display (HUD) overlays with configurable trigger delays (in milliseconds):
+* **Top Edge:** Scrubbable horizontal thumbnail filmstrip, quick filter bar, and sort order selector.
+* **Left Edge:** Collapsible live directory tree and favorite folders bookmark list.
+* **Right Edge:** EXIF metadata inspector, live histogram, and International Color Consortium (ICC) profile status.
+* **Bottom Edge:** Zoom percentage, pixel dimensions, cursor coordinates, file index (`142 / 850`), and quick-action bar.
+
+
+* **Customizable Canvas Backgrounds:** Single-key toggle between pure black (`#000000`), dark neutral gray (`#1E1E1E`), 18% middle gray (`#777777`), pure white (`#FFFFFF`), custom hexadecimal value, blurred ambient backdrop, or a customizable checkerboard grid for alpha-channel transparency.
+* **Single vs. Multi-Instance Routing:** Configurable toggle between reusing a single application window when opening files from the OS shell or spawning independent viewer windows for side-by-side reference across monitors.
+* **Always-on-Top Reference Mode ("Pin Window"):** Toggleable frameless floating window mode with adjustable window opacity (`20%` to `100%`) and click-through pass-through mode for artists and designers using an image as an overlay reference.
+* **Projector / Dual-Monitor Presentation Mode:** Ability to browse a thumbnail grid and directory tree on Monitor 1 while locking a clean, zero-UI fullscreen output of the selected image onto Monitor 2.
+
+---
+
+## 4. Zoom, Pan, and Resampling Mechanics
+
+* **Granular Auto-Fit Modes:**
+* **Fit to Window (Shrink Only):** Scale down images larger than the viewport while keeping smaller images (such as icons or pixel art) at `100%` native resolution without blurry upscaling.
+* **Scale to Fit (Stretch & Shrink):** Expand or shrink any image to touch the inner bounds of the viewport.
+* **Scale to Fill (Crop to Aspect):** Fill the entire viewport without letterboxing by fitting the shorter dimension.
+* **Fit Width / Fit Height:** Lock horizontal or vertical dimensions to the viewport (essential for vertical infographics or comic strips).
+
+
+* **Persistent Zoom & Coordinate Lock:** Lock the exact zoom factor and normalized $X/Y$ pan coordinates while flipping through sequential images. This allows instant pixel-level sharpness comparison across burst shots.
+* **Spring-Loaded Loupe Magnifier:** Holding the left mouse button (or a bound hotkey) on a fitted image immediately snaps the view to `100%` (or configurable `200%`/`400%` zoom) centered at the exact cursor coordinate; releasing the button immediately restores the fitted view.
+* **High Dots Per Inch (HiDPI) 1:1 Pixel Mapping:** Ensure `100%` zoom always maps 1 image pixel to 1 physical display pixel, bypassing OS fractional scaling blur (such as Windows 125% or 150% scaling).
+* **Independent Downscale & Upscale Shaders:**
+* **Downscaling Filter:** Configurable choice between **Lanczos3**, **Bicubic**, **Mitchell-Netravali**, and **Area Averaging** with an optional subtle post-resize unsharp mask (JPEGView style) to preserve micro-contrast when viewing high-resolution photos on lower-resolution screens.
+* **Upscaling Filter:** Instant hotkey toggle between **Nearest Neighbor** (hard pixel edges for pixel art, textures, and upscaled verification) and **Bicubic**/**Lanczos** smooth interpolation.
+
+
+
+---
+
+## 5. Advanced Viewing Modes and Visual Diagnostics
+
+* **Synchronized Multi-Image Culling (2-Up / 4-Up Split View):** Select up to four images to render side-by-side in a tiled viewport. Panning or zooming on one image simultaneously pans and zooms all visible candidates at identical normalized coordinates, with single-key bindings to swap the active candidate or drop rejected shots.
+* **In-Memory Archive & Container Streaming:** Natively open and traverse `.zip`, `.rar`, `.7z`, `.tar`, `.cbz`, and `.cbr` archives directly in RAM without writing temporary files to disk. Treat archives as standard folders during depth-first directory traversal.
+* **Channel Isolation and Exposure Diagnostics:**
+* Single-key toggles to isolate **Red**, **Green**, **Blue**, or **Alpha** channels, invert colors, or view in **Luminance Grayscale**.
+* **Highlight and Shadow Clipping Warnings:** Toggleable blinking overlays indicating pure blown highlights (`255, 255, 255`) and crushed shadows (`0, 0, 0`).
+* **Live Scoped Histogram:** Real-time Red, Green, Blue, Alpha (RGBA) and Luminance histogram that can toggle between analyzing the entire image or exclusively analyzing the pixels visible within the current zoomed viewport.
+
+
+* **Frame-by-Frame Animation & Motion Photo Controller:**
+* For Animated Portable Network Graphics (APNG), Graphics Interchange Format (GIF), Web Picture format (WebP), AV1 Image File Format (AVIF), and multi-page Tagged Image File Format (TIFF) files: provide a scrubbable timeline bar, playback speed multiplier (`0.1x` to `4.0x`), loop mode toggle, single-frame step forward/backward, and single-frame extraction.
+* **Live Photo / Motion JPEG Support:** Detect and play embedded video streams inside Apple Live Photos and Android Motion JPEGs on keypress.
+
+
+* **Continuous Strip & Dual-Page Spread Modes:**
+* **Vertical Webtoon Strip:** Render an entire folder as a hardware-accelerated, continuous vertical scroll stream with adjustable gap padding.
+* **Dual-Page Book Mode:** Render two sequential images side-by-side with configurable Left-to-Right or Right-to-Left reading order and an automatic single-page offset toggle for cover pages.
+
+
+* **On-Canvas Color Sampler:** Inspect any pixel under the cursor to display and copy its exact color values in Hexadecimal, RGB, float RGB, Cyan Magenta Yellow Key (CMYK), Hue Saturation Lightness (HSL), or CIELAB.
+* **Composition Grid Overlays:** Toggleable non-destructive viewport guides (Rule of Thirds, Golden Ratio, Center Crosshair, and custom pixel grid).
+
+---
+
+## 6. Color Management and High Dynamic Range (HDR) Pipeline
+
+* **Multi-Monitor ICC Profile Awareness:** Automatically query the OS for the hardware calibration ICC profile of the specific monitor the viewer window currently occupies, dynamically re-rendering colors the moment the window is dragged across display boundaries.
+* **Embedded Profile Honoring & Fallback:** Parse embedded sRGB, AdobeRGB, Display P3, and ProPhoto RGB color profiles. Provide a configurable fallback profile for untagged assets and a single-key "Proof in sRGB" toggle.
+* **Native High Dynamic Range (HDR) & Gain Map Compositing:**
+* Full 10-bit, 16-bit integer, and 32-bit floating-point swapchain support.
+* Native decoding of **ISO 21496-1 Gain Map HDR**, Google **Ultra HDR JPEGs**, and Apple **Adaptive HDR HEIC** files, dynamically utilizing the display's available Extended Dynamic Range (EDR) headroom without clipping or oversaturating Standard Dynamic Range (SDR) base layers.
+* **Interactive HDR Tone-Mapping Preview:** For OpenEXR (`.exr`) and Radiance (`.hdr`) files viewed on SDR monitors, provide a live non-destructive exposure and highlight compression slider on the HUD.
+
+
+
+---
+
+## 7. Non-Destructive Culling, Metadata, and Pipeline Handoff
+
+While strictly not an editor, a viewer must excel at rapid file triaging and passing selected assets to external tools.
+
+* **Metadata & Artificial Intelligence (AI) Generation Inspector:**
+* Instant categorized readout of EXIF, International Press Telecommunications Council (IPTC), and Extensible Metadata Platform (XMP) tags.
+* Native parser for embedded AI generation payloads (Stable Diffusion parameters, ComfyUI JSON node graphs, and Midjourney metadata chunks stored in Portable Network Graphics (PNG) `tEXt`/`iTXt` or WebP EXIF chunks) with one-click buttons to copy the positive prompt, negative prompt, seed, or full workflow JSON.
+* One-click Global Positioning System (GPS) coordinate launch in an external map provider.
+
+
+* **Zero-Lock File Handle Architecture:** Never maintain an exclusive OS file lock on the currently viewed image. External scripts, compilers, or image editors must be able to overwrite, rename, or delete the active file on disk. The viewer must watch the file system descriptor and automatically hot-reload the canvas within 50 milliseconds if the file is modified externally, or advance to the next image if deleted.
+* **Fast Culling & XMP Sidecar Interop:**
+* Single-key rating (`1` to `5` stars), Pick/Reject flags, and Color Labels that read and write directly to industry-standard non-destructive `.xmp` sidecar files (ensuring 100% compatibility with Adobe Lightroom, Capture One, and Darktable).
+* FastStone-style **Session Tagging**: Press `Space` or `Insert` to mark files into a temporary virtual selection list, then filter by tagged files or execute batch Copy, Move, Delete, or Path-Copy operations on the tagged set.
+
+
+* **Lossless Orientation Transforms:** Support true lossless 90-degree rotation and horizontal/vertical flipping for JPEGs via EXIF orientation tag updates or lossless Minimum Coded Unit (MCU) block rearrangement without re-encoding or generational quality loss.
+* **Multi-Target Clipboard & External Handoff:**
+* Separate shortcuts for **Copy Image Bitmap to Clipboard**, **Copy File Object to Clipboard** (for pasting into OS folders or chat apps), **Copy Full File Path**, and **Copy Base64 Data URI**.
+* Configurable **External Tool Slots (`Ctrl + 1` through `Ctrl + 9`)** to pass the current file path (or all currently tagged file paths) as Command Line Interface (CLI) arguments to external editors, Python scripts, or asset pipelines.
+
+
+
+---
+
+## 8. Comprehensive Native Format Support Matrix
+
+The application must ship with self-contained, statically or locally linked decoding libraries (`libjpeg-turbo`, `libpng`, `libwebp`, `dav1d`/`libavif`, `libjxl`, `LibRaw`, `OpenEXR`, `resvg`) so the user never has to purchase or install broken OS store codec packs.
+
+| Format Category | Supported Extensions |
+| --- | --- |
+| **Standard Raster** | `.jpg`, `.jpeg`, `.png`, `.bmp`, `.tga`, `.tif`, `.tiff` (multi-page), `.gif` |
+| **Next-Gen & Web** | `.webp`, `.avif`, `.jxl` (JPEG XL), `.heic`, `.heif`, `.qoi` (Quite OK Image Format) |
+| **Animated & Multi-Frame** | Animated `.gif`, `.webp`, `.apng`, `.avif`, `.jxl`, Apple Live Photos, Motion JPEG |
+| **Camera RAW** | `.dng`, `.cr2`, `.cr3` (Canon), `.nef`, `.nrw` (Nikon), `.arw`, `.sr2` (Sony), `.raf` (Fujifilm), `.orf` (Olympus), `.rw2` (Panasonic), `.pef` (Pentax), `.iiq` (Phase One) |
+| **High Dynamic Range** | Ultra HDR `.jpg`, Gain Map `.heic`, `.exr` (OpenEXR), `.hdr` (Radiance), 16/32-bit `.tiff` |
+| **Design, Vector & Game** | `.svg`, `.svgz` (via native vector rasterizer), `.psd` & `.psb` (flattened composite), `.dds` (DirectDraw Surface textures), `.ktx2`, `.kra` (Krita), `.clip` (Clip Studio), `.ico`, `.icns` |
+| **Archive Containers** | `.zip`, `.cbz`, `.rar`, `.cbr`, `.7z`, `.tar` |

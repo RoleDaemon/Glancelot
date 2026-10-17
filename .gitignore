@@ -1,0 +1,9 @@
+.tools/
+.worktrees/
+build/
+build-*/
+dist/
+.cache/
+*.user
+aqtinstall.log
+__pycache__/
