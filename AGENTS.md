@@ -1,6 +1,7 @@
 # Glancelot agent instructions
 
 - Build C++20 / Qt 6.8.3 Quick with a GPU canvas. Preserve docs/REQUIREMENTS.md and its acceptance criteria.
+- Use the relevant ui-design-skills when designing, implementing or reviewing UI. Read application-interface-design plus applicable layout, spacing, typography, geometry, iconography, motion and responsive skills; use design-review for substantial UI changes. Apply their principles to native Qt/QML, preserve supplied branding and theme tokens, and do not introduce web frameworks solely because a skill uses web examples. Include this requirement in delegated UI tasks.
 - The lead alone edits shared contracts, root CMake/configuration, docs/WORK-QUEUE.yaml and integrates branches.
 - Every implementation task uses its assigned worktree, branch and build directory. Never edit another agent's worktree.
 - Keep at most two implementation agents and one independent reviewer active under the lead. Reviewers do not approve their own implementations.
