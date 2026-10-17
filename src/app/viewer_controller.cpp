@@ -60,7 +60,7 @@ const std::vector<Command> registry {
     {"fullscreen","Toggle fullscreen","F11"}, {"fit","Fit image (shrink only)","F"},
     {"actual","Actual size (physical 1:1)","1"}, {"zoom-in","Zoom in","+",true}, {"zoom-out","Zoom out","-",true},
     {"rotate","Rotate view clockwise","R"}, {"background","Cycle canvas background","B"},
-    {"frameless","Toggle window frame","Ctrl+F11"}, {"quit","Quit","Ctrl+Q"}
+    {"frameless","Toggle window frame","Ctrl+F11"}, {"filmstrip","Toggle filmstrip","T"}, {"quit","Quit","Ctrl+Q"}
 };
 QString configDirectory() {
     const QString override = qEnvironmentVariable("GLANCELOT_CONFIG_DIR");
@@ -75,7 +75,7 @@ struct ViewerController::Private {
     ViewerController* q;
     QImage image;
     QString path, status{"Open a JPEG or PNG to begin."}, boundary{"continue"}, wheel{"navigate"};
-    bool loading{};
+    bool loading{}, filmstrip{true};
     quint64 generation{}, navigationGeneration{};
     Navigator nav;
     QJsonObject bindings;
@@ -106,6 +106,7 @@ struct ViewerController::Private {
         reload.setSingleShot(true); reload.setInterval(120);
         QObject::connect(&reload,&QTimer::timeout,q,[this]{
             cache.clear();
+            emit q->filesInvalidated();
             if (QFileInfo::exists(path)) { const QString target=path; q->open(target); }
             else { navigate(1, false); }
         });
@@ -137,6 +138,7 @@ struct ViewerController::Private {
         if (savedBoundary=="continue" || savedBoundary=="stop" || savedBoundary=="loop") boundary=savedBoundary;
         const auto savedWheel=object.value("wheel").toString();
         if (savedWheel=="navigate" || savedWheel=="zoom" || savedWheel=="pan") wheel=savedWheel;
+        if (object.value("filmstrip").isBool()) filmstrip=object.value("filmstrip").toBool();
     }
     bool save() {
         if (!QDir().mkpath(configDirectory())) return false;
@@ -151,7 +153,7 @@ struct ViewerController::Private {
             previous.close();
             QFile::remove(target+".bak"); QFile::copy(target,target+".bak");
         }
-        object["schema"]=1; object["bindings"]=bindings; object["boundary"]=boundary; object["wheel"]=wheel;
+        object["schema"]=1; object["bindings"]=bindings; object["boundary"]=boundary; object["wheel"]=wheel; object["filmstrip"]=filmstrip;
         QSaveFile file(target);
         const auto bytes=QJsonDocument(object).toJson(QJsonDocument::Indented);
         return file.open(QIODevice::WriteOnly) && file.write(bytes)==bytes.size() && file.commit();
@@ -318,6 +320,7 @@ void ViewerController::next(){d->navigate(1,false);}void ViewerController::previ
 void ViewerController::nextFolder(){d->navigate(1,true);}void ViewerController::previousFolder(){d->navigate(-1,true);}
 void ViewerController::trigger(const QString& id){
     if(id=="next")next();else if(id=="previous")previous();else if(id=="next-folder")nextFolder();else if(id=="previous-folder")previousFolder();
+    else if(id=="filmstrip")setFilmstripVisible(!d->filmstrip);
     else if(id=="quit")QCoreApplication::quit();else if(d->bindings.contains(id))emit viewCommand(id);
 }
 QString ViewerController::bindingFor(const QString& id) const{return d->bindings.value(id).toString();}
@@ -332,5 +335,8 @@ bool ViewerController::setBinding(const QString& id,const QString& sequence){
     emit bindingsChanged();emit stateChanged();return true;
 }
 void ViewerController::resetBindings(){for(const auto& cmd:registry)d->bindings[QString::fromStdString(cmd.id)]=QString::fromStdString(cmd.defaultBinding);const bool saved=d->save();d->status=saved?"Default shortcuts restored.":"Defaults restored for this session; settings could not be saved.";emit bindingsChanged();emit stateChanged();}
+bool ViewerController::filmstripVisible() const{return d->filmstrip;}
+const NavigationSnapshot& ViewerController::snapshot() const{return d->nav.snapshot();}
+void ViewerController::setFilmstripVisible(bool value){if(d->filmstrip==value)return;d->filmstrip=value;if(!d->save())d->status="Filmstrip setting changed; settings could not be saved.";emit stateChanged();}
 void ViewerController::setBoundaryMode(const QString& value){if(value!="continue"&&value!="stop"&&value!="loop")return;d->boundary=value;d->nav.setBoundary(boundaryValue(value));if(!d->save())d->status="Boundary mode changed; settings could not be saved.";emit stateChanged();}
 void ViewerController::setWheelMode(const QString& value){if(value!="navigate"&&value!="zoom"&&value!="pan")return;d->wheel=value;if(!d->save())d->status="Wheel behavior changed; settings could not be saved.";emit stateChanged();}

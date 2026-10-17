@@ -49,6 +49,14 @@ tasks:
     evidence: Portable package opens generated PNG with Qt removed from PATH; clean-machine VM remains unverified
     depends: [VERIFY-01]
     acceptance: Portable native package runs without Qt development environment
+  - id: BROWSE-01
+    requirements: [UX-02, PERF-05, SYS-02]
+    owner: lead
+    state: implementing
+    memory_action: act_mvctoy9h_1ad0a37bcccb
+    depends: [VERIFY-01]
+    files: [include/glancelot/thumbnail_service.hpp, include/glancelot/filmstrip_model.hpp, src/app/thumbnail_service.cpp, src/app/filmstrip_model.cpp, src/app/thumbnail_provider.cpp, src/worker/main.cpp, ui/Filmstrip.qml, tests/thumbnail_tests.cpp]
+    acceptance: Virtualized filmstrip in top HUD; thumbnails only in decoder workers; bounded queue/cache/workers; stale-epoch and cancelled results dropped; malformed/timeout/crash recovery; EXIF-oriented aspect; no source writes; keyboard/command route
 unverified:
   - Physical Linux windowing, display profiles, HDR and high-refresh presentation
   - Full Linux GUI build (core tests verified in Ubuntu 24.04 WSL/GCC)

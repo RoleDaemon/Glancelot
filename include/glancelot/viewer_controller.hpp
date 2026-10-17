@@ -1,4 +1,5 @@
 #pragma once
+#include "contracts.hpp"
 #include <QObject>
 #include <QImage>
 #include <QVariantList>
@@ -19,6 +20,7 @@ class ViewerController : public QObject {
     Q_PROPERTY(QVariantList commands READ commands NOTIFY bindingsChanged)
     Q_PROPERTY(QString boundaryMode READ boundaryMode WRITE setBoundaryMode NOTIFY stateChanged)
     Q_PROPERTY(QString wheelMode READ wheelMode WRITE setWheelMode NOTIFY stateChanged)
+    Q_PROPERTY(bool filmstripVisible READ filmstripVisible WRITE setFilmstripVisible NOTIFY stateChanged)
 public:
     explicit ViewerController(QObject* parent=nullptr);
     ~ViewerController() override;
@@ -36,8 +38,13 @@ public:
     Q_INVOKABLE bool setBinding(const QString& id,const QString& sequence);
     Q_INVOKABLE void resetBindings();
     void setBoundaryMode(const QString& mode); void setWheelMode(const QString& mode);
+    bool filmstripVisible() const; void setFilmstripVisible(bool visible);
+    // Current folder listing; valid until the next stateChanged. Copy before use across event-loop turns.
+    const glancelot::NavigationSnapshot& snapshot() const;
 signals:
     void imageChanged(); void stateChanged(); void bindingsChanged();
+    // The watched file or folder changed on disk; cached derived data (thumbnails) is stale.
+    void filesInvalidated();
     void viewCommand(const QString& id);
 private:
     struct Private;
