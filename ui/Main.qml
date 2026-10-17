@@ -24,6 +24,7 @@ ApplicationWindow {
     property string bindingMessage: ""
     readonly property color surface: theme.colors.surface
     readonly property color muted: theme.colors.muted
+    readonly property color primaryColor: theme.colors.primary
     flags: Qt.Window | (frameless ? Qt.FramelessWindowHint : 0)
     font.family: Qt.platform.os === "windows" ? "Segoe UI" : "Noto Sans"
     font.pixelSize: 13
@@ -160,7 +161,7 @@ ApplicationWindow {
         anchors.fill: parent
         onEntered: drag => { drag.accepted = drag.hasUrls }
         onDropped: drop => { if (drop.hasUrls && drop.urls.length) { viewer.open(drop.urls[0].toString()); drop.acceptProposedAction() } }
-        Rectangle { anchors.fill: parent; visible: parent.containsDrag; color: Qt.alpha(theme.colors.primary, 0.15); border.width: 2; border.color: theme.colors.primary }
+        Rectangle { anchors.fill: parent; visible: parent.containsDrag; color: Qt.rgba(app.primaryColor.r, app.primaryColor.g, app.primaryColor.b, 0.15); border.width: 2; border.color: theme.colors.primary }
     }
     Column {
         anchors.centerIn: parent

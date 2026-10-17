@@ -37,7 +37,7 @@ def enrich(t, dark):
         linear=[v/12.92 if v<=.04045 else ((v+.055)/1.055)**2.4 for v in channels]
         return sum(v*w for v,w in zip(linear,(.2126,.7152,.0722)))
     primary_luminance=luminance(t["primary"])
-    t["onPrimary"]="#101923" if (primary_luminance+.05)/(luminance("#101923")+.05) >= 1.05/(primary_luminance+.05) else "#FFFFFF"
+    t["onPrimary"]="#000000" if (primary_luminance+.05)/.05 >= 1.05/(primary_luminance+.05) else "#FFFFFF"
     t["danger"]="#FFB4AB" if dark else "#9B2525"
     return t
 catalog=[]

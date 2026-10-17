@@ -50,6 +50,7 @@ QString writeOrientedJpeg(const QString& directory, int orientation) {
 class AcceptanceTests final : public QObject {
     Q_OBJECT
 private slots:
+    void init() { QTest::failOnWarning(QRegularExpression("QProcess: Destroyed while process.*still running.*")); }
     void generatedTreeReverseOracle();
     void malformedInputTerminates();
     void pngPreservesDimensionsAlphaAndColor();

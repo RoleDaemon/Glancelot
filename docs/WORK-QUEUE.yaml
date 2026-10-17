@@ -6,44 +6,56 @@ tasks:
   - id: BOOT-01
     requirements: [SYS-04, SYS-05]
     owner: lead
-    state: integration
+    state: done
     outcome: Reproducible native build and isolated agent worktrees
     base_commit: 88c6abf
     evidence: Qt 6.8.3 and MSVC2022 found; CMake/Ninja installed project-locally
   - id: NAV-CORE
     requirements: [NAV-01, NAV-02, NAV-03, NAV-04, NAV-06, NAV-08]
     owner: navigation
-    state: implementing
+    state: done
+    commit: 4e3247f
+    evidence: Independent Windows and Ubuntu GCC traversal tests pass including cancellation; Linux symlinks and permissions exercised
     depends: [BOOT-01]
     files: [src/core/navigation.cpp, tests/navigation_tests.cpp]
     acceptance: Natural folder ordering, forward/reverse landing, roots, links, boundary policies
   - id: CANVAS-UI
     requirements: [PERF-01, UX-01, VIEW-01, VIEW-03, VIEW-04, IN-04]
     owner: canvas
-    state: implementing
+    state: integration
+    evidence: Native GPU window screenshot and viewport tests pass; physical DPI/performance qualification remains
     depends: [BOOT-01]
     files: [src/render, ui/Main.qml]
     acceptance: GPU canvas, physical zoom, cursor pan/zoom, loupe, palette, minimal controls
   - id: DECODE-01
     requirements: [PERF-04, META-04, SYS-02]
     owner: lead
-    state: implementing
+    state: integration
+    evidence: Independent19-case acceptance passed; bounded queues cancellation and process cleanup repaired
     depends: [BOOT-01]
     files: [src/worker, src/app, app]
     acceptance: Separate bounded JPEG/PNG decoder, stale-generation rejection, config persistence
   - id: VERIFY-01
     requirements: [SYS-05, SYS-06]
     owner: reviewer
-    state: implementing
+    state: done
+    evidence: Independent acceptance19/19 and viewport9/9; physical hardware gates remain explicit
     depends: [NAV-CORE, CANVAS-UI, DECODE-01]
     acceptance: Independent malformed/source-change/cancellation/navigation/viewport checks
   - id: ALPHA-PACKAGE
     requirements: [SYS-04]
     owner: lead
-    state: ready
+    state: done
+    evidence: Portable package opens generated PNG with Qt removed from PATH; clean-machine VM remains unverified
     depends: [VERIFY-01]
     acceptance: Portable native package runs without Qt development environment
 unverified:
   - Physical Linux windowing, display profiles, HDR and high-refresh presentation
-  - WSL execution (previous distribution enumeration access denied)
+  - Full Linux GUI build (core tests verified in Ubuntu 24.04 WSL/GCC)
+theme_task:
+  id: THEME-01
+  state: done
+  memory_action: act_mvct93q3_63da8c255b4b
+  outcome: Supplied Slate and Ice branding plus 40 families and 80 built-in variants
+  acceptance: Exact supplied tokens, persisted settings, contrast, live search, compact layout, portable smoke
 remaining_waves: [browsing, culling, format_completion, hardening, expansions]

@@ -9,17 +9,18 @@ Dialog {
     width: Math.min(780, parent.width - 40)
     height: Math.min(660, parent.height - 48)
     standardButtons: Dialog.Close
+    readonly property bool compact: height < 450
     onOpened: search.forceActiveFocus()
     ColumnLayout {
         anchors.fill: parent
-        spacing: 14
+        spacing: picker.compact ? 6 : 14
         RowLayout {
             Layout.fillWidth: true
             ColumnLayout {
-                spacing: 4
+                spacing: picker.compact ? 0 : 4
                 Layout.fillWidth: true
-                Label { text: "Choose your palette"; font.pixelSize: 20; font.weight: Font.DemiBold; Layout.fillWidth: true; elide: Text.ElideRight }
-                Label { text: "40 palettes · light and dark"; color: theme.colors.muted; font.pixelSize: 12 }
+                Label { text: picker.compact ? "Palette" : "Choose your palette"; font.pixelSize: picker.compact ? 14 : 20; font.weight: Font.DemiBold; Layout.fillWidth: true; elide: Text.ElideRight }
+                Label { visible: !picker.compact; text: "40 palettes · light and dark"; color: theme.colors.muted; font.pixelSize: 12 }
             }
             Item { Layout.fillWidth: true }
             ComboBox {
@@ -47,7 +48,7 @@ Dialog {
                         property var preview: theme.dark ? modelData.dark : modelData.light
                         visible: modelData.name.toLowerCase().indexOf(search.text.toLowerCase()) >= 0
                         width: (picker.availableWidth - (picker.availableWidth >= 600 ? 20 : 10)) / (picker.availableWidth >= 600 ? 3 : 2)
-                        height: 106
+                        height: picker.compact ? 76 : 106
                         checked: theme.family === modelData.id
                         Accessible.name: modelData.name + (checked ? ", selected" : "")
                         onClicked: theme.family = modelData.id
@@ -76,6 +77,6 @@ Dialog {
                 }
             }
         }
-        Label { Layout.fillWidth: true; text: theme.error || "Theme changes apply immediately and are saved. Photo pixel colors stay unchanged."; color: theme.error ? theme.colors.danger : theme.colors.muted; wrapMode: Text.Wrap }
+        Label { visible: !picker.compact || theme.error.length > 0; Layout.fillWidth: true; text: theme.error || "Theme changes apply immediately and are saved. Photo pixel colors stay unchanged."; color: theme.error ? theme.colors.danger : theme.colors.muted; wrapMode: Text.Wrap }
     }
 }

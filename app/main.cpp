@@ -31,6 +31,7 @@ int main(int argc,char** argv) {
     parser.addOption({"theme","Select a built-in family (saved preference).","id"});
     parser.addOption({"theme-mode","Select system, dark, or light (saved preference).","mode"});
     parser.addOption({"show-themes","Open the theme picker at startup (test automation)."});
+    parser.addOption({"window-size","Initial logical window size for UI verification, e.g. 540x360.","size"});
     parser.process(app);
     QElapsedTimer elapsed;elapsed.start();
     ViewerController viewer;
@@ -47,6 +48,7 @@ int main(int argc,char** argv) {
     if(engine.rootObjects().isEmpty())return 2;
     if(parser.isSet("show-themes"))QTimer::singleShot(100,engine.rootObjects().first(),[&]{QMetaObject::invokeMethod(engine.rootObjects().first(),"openThemes");});
     auto* window=qobject_cast<QQuickWindow*>(engine.rootObjects().first());
+    if(window&&parser.isSet("window-size")) { const auto dimensions=parser.value("window-size").split('x'); if(dimensions.size()==2)window->resize(qMax(540,dimensions[0].toInt()),qMax(360,dimensions[1].toInt())); }
     qint64 firstImage=-1,firstFrame=-1; int frames=0;
     QObject::connect(&viewer,&ViewerController::imageChanged,&app,[&]{if(firstImage<0&&!viewer.image().isNull())firstImage=elapsed.elapsed();});
     if(window)QObject::connect(window,&QQuickWindow::frameSwapped,&app,[&]{++frames;if(firstFrame<0&&!viewer.image().isNull())firstFrame=elapsed.elapsed();});

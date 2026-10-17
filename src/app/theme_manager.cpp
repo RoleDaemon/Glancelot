@@ -54,6 +54,7 @@ void ThemeManager::save() {
         const auto document=QJsonDocument::fromJson(previous.readAll(),&parse);
         if(parse.error!=QJsonParseError::NoError||!document.isObject()||document.object().value("schema").toInt()!=1){m_error="Unsupported preferences; theme applies for this session.";return;}
         root=document.object();
+        previous.close();
     }
     auto appearance=root.value("appearance").toObject();
     appearance["family"]=m_family;appearance["mode"]=m_mode;
