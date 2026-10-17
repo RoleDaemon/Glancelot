@@ -1,0 +1,19 @@
+{
+  "navy": "#233246",
+  "slate": "#496E99",
+  "ice": "#8ABBD9",
+  "silver": "#C5D2DF",
+  "iris": "#439EE0",
+  "light_background": "#F4F7FA",
+  "light_surface": "#FFFFFF",
+  "light_text": "#233246",
+  "light_primary": "#496E99",
+  "light_accent": "#8ABBD9",
+  "light_border": "#DFE5ED",
+  "dark_background": "#101923",
+  "dark_surface": "#1B2937",
+  "dark_text": "#EAF3FB",
+  "dark_primary": "#93BEE9",
+  "dark_accent": "#93DCE4",
+  "dark_border": "#33465A"
+}

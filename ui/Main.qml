@@ -14,29 +14,29 @@ ApplicationWindow {
     minimumHeight: 360
     visible: true
     title: viewer.fileName ? viewer.fileName + " — Glancelot" : "Glancelot"
-    color: "#191919"
+    color: theme.colors.background
     property bool frameless: false
     property bool hudVisible: true
-    property bool modalOpen: paletteDialog.opened || settingsDialog.opened || openDialog.visible
+    property bool modalOpen: paletteDialog.opened || settingsDialog.opened || themePicker.opened || openDialog.visible
     property real pointerX: width / 2
     property real pointerY: height / 2
     property real wheelRemainder: 0
     property string bindingMessage: ""
-    readonly property color surface: "#242424"
-    readonly property color muted: "#a4a4a4"
+    readonly property color surface: theme.colors.surface
+    readonly property color muted: theme.colors.muted
     flags: Qt.Window | (frameless ? Qt.FramelessWindowHint : 0)
     font.family: Qt.platform.os === "windows" ? "Segoe UI" : "Noto Sans"
     font.pixelSize: 13
-    palette.window: "#242424"
-    palette.windowText: "#eeeeee"
-    palette.base: "#181818"
-    palette.text: "#eeeeee"
-    palette.button: "#343434"
-    palette.buttonText: "#eeeeee"
-    palette.highlight: "#626262"
-    palette.highlightedText: "#ffffff"
-    palette.mid: "#555555"
-    palette.placeholderText: "#909090"
+    palette.window: theme.colors.surface
+    palette.windowText: theme.colors.text
+    palette.base: theme.colors.background
+    palette.text: theme.colors.text
+    palette.button: theme.colors.surface
+    palette.buttonText: theme.colors.text
+    palette.highlight: theme.colors.primary
+    palette.highlightedText: theme.colors.onPrimary
+    palette.mid: theme.colors.border
+    palette.placeholderText: theme.colors.muted
 
     function wakeHud() { hudVisible = true; hideHud.restart() }
     function invoke(id) { viewer.trigger(id); wakeHud() }
@@ -102,15 +102,18 @@ ApplicationWindow {
         horizontalPadding: 12
         focusPolicy: Qt.StrongFocus
         Accessible.name: text
-        background: Rectangle { radius: 4; color: parent.down ? "#505050" : parent.hovered || parent.visualFocus ? "#393939" : "transparent"; border.color: parent.visualFocus ? "#bfbfbf" : "transparent" }
+        background: Rectangle { radius: 4; color: parent.down || parent.hovered || parent.visualFocus ? theme.colors.hover : "transparent"; border.color: parent.visualFocus ? theme.colors.primary : "transparent" }
         ToolTip.visible: hovered && ToolTip.text.length > 0
         ToolTip.delay: 600
     }
+    ThemePicker { id: themePicker; anchors.centerIn: parent; onClosed: canvas.forceActiveFocus() }
+    function openThemes() { themePicker.open() }
     ImageCanvas {
         id: canvas
         objectName: "canvas"
         anchors.fill: parent
         image: viewer.image
+        background: "#191919"
         focus: true
         Accessible.name: "Photo canvas"
         Accessible.description: viewer.fileName.length ? viewer.fileName + ", " + viewer.imageWidth + " by " + viewer.imageHeight + " pixels" : "Open or drop a photo to begin"
@@ -157,23 +160,24 @@ ApplicationWindow {
         anchors.fill: parent
         onEntered: drag => { drag.accepted = drag.hasUrls }
         onDropped: drop => { if (drop.hasUrls && drop.urls.length) { viewer.open(drop.urls[0].toString()); drop.acceptProposedAction() } }
-        Rectangle { anchors.fill: parent; visible: parent.containsDrag; color: "#44222222"; border.width: 2; border.color: "#c4c4c4" }
+        Rectangle { anchors.fill: parent; visible: parent.containsDrag; color: Qt.alpha(theme.colors.primary, 0.15); border.width: 2; border.color: theme.colors.primary }
     }
     Column {
         anchors.centerIn: parent
         spacing: 16
         visible: viewer.fileCount === 0 && !viewer.loading
         width: Math.min(460, app.width-64)
-        Text { anchors.horizontalCenter: parent.horizontalCenter; text: "Glancelot"; color: "#ededed"; font.pixelSize: 38; font.weight: Font.Light }
-        Text { width: parent.width; horizontalAlignment: Text.AlignHCenter; text: "A little less interface. More photograph."; color: app.muted; font.pixelSize: 14; wrapMode: Text.Wrap }
-        ActionButton { anchors.horizontalCenter: parent.horizontalCenter; text: "Open a photo"; onClicked: app.invoke("open"); background: Rectangle { radius: 4; color: parent.hovered ? "#eeeeee" : "#d8d8d8" } palette.buttonText: "#181818" }
-        Text { width: parent.width; horizontalAlignment: Text.AlignHCenter; text: "Drop a JPEG or PNG here\nBrowse the folder with the arrow keys"; color: "#808080"; font.pixelSize: 12; lineHeight: 1.6 }
+        Image { anchors.horizontalCenter: parent.horizontalCenter; width: 160; height: 160; source: "qrc:/brand/mascots/transparent/01_mascot_standing.png"; fillMode: Image.PreserveAspectFit; sourceSize.width: 320; sourceSize.height: 320 }
+        Text { anchors.horizontalCenter: parent.horizontalCenter; text: "Glancelot"; color: theme.colors.text; font.pixelSize: 38; font.weight: Font.Light }
+        Text { width: parent.width; horizontalAlignment: Text.AlignHCenter; text: "Your photographs, front and center."; color: app.muted; font.pixelSize: 14; wrapMode: Text.Wrap }
+        ActionButton { anchors.horizontalCenter: parent.horizontalCenter; text: "Open a photo"; onClicked: app.invoke("open"); background: Rectangle { radius: 4; color: theme.colors.primary } palette.buttonText: theme.colors.onPrimary }
+        Text { width: parent.width; horizontalAlignment: Text.AlignHCenter; text: "Drop a JPEG or PNG here\nBrowse the folder with the arrow keys"; color: theme.colors.muted; font.pixelSize: 12; lineHeight: 1.6 }
     }
     Rectangle {
         id: topPanel
         anchors { left: parent.left; right: parent.right; top: parent.top }
         height: 52
-        color: "#ed222222"
+        color: theme.colors.surface
         visible: app.hudVisible || app.frameless
         HoverHandler { id: topBar }
         MouseArea { anchors.fill: parent; enabled: app.frameless; onPressed: app.startSystemMove(); onDoubleClicked: app.visibility === Window.Maximized ? app.showNormal() : app.showMaximized() }
@@ -181,10 +185,12 @@ ApplicationWindow {
             anchors.fill: parent
             anchors.leftMargin: 12; anchors.rightMargin: 12
             spacing: 4
+            Image { Layout.preferredWidth: 28; Layout.preferredHeight: 28; source: "qrc:/brand/icons/app/" + (theme.dark ? "dark" : "light") + "/glancelot-64.png"; fillMode: Image.PreserveAspectFit }
             ActionButton { text: "Open"; onClicked: app.invoke("open"); ToolTip.text: viewer.bindingFor("open") }
-            Label { text: " / "; color: "#666666" }
-            Label { text: viewer.fileName || "Glancelot"; elide: Text.ElideMiddle; Layout.fillWidth: true; color: "#d0d0d0" }
-            ActionButton { text: "Commands"; onClicked: app.invoke("palette"); ToolTip.text: viewer.bindingFor("palette") }
+            Label { text: " / "; color: theme.colors.border }
+            Label { text: viewer.fileName || "Glancelot"; elide: Text.ElideMiddle; Layout.fillWidth: true; color: theme.colors.text }
+            ActionButton { text: app.width > 720 ? "Commands" : "Menu"; onClicked: app.invoke("palette"); ToolTip.text: viewer.bindingFor("palette") }
+            ActionButton { text: "Themes"; onClicked: app.openThemes(); ToolTip.text: "Choose from 80 theme variants" }
             ActionButton { text: "Settings"; onClicked: app.invoke("settings"); ToolTip.text: viewer.bindingFor("settings") }
             ActionButton { text: "Exit fullscreen"; visible: app.visibility === Window.FullScreen; onClicked: app.invoke("fullscreen") }
             ActionButton { text: "Decorate"; visible: app.frameless; onClicked: app.invoke("frameless") }
@@ -195,7 +201,7 @@ ApplicationWindow {
         anchors { left: parent.left; right: parent.right; bottom: parent.bottom }
         height: 58
         visible: app.hudVisible
-        color: "#ed222222"
+        color: theme.colors.surface
         HoverHandler { id: bottomHover }
         RowLayout {
             anchors.fill: parent
@@ -216,9 +222,9 @@ ApplicationWindow {
         width: Math.min(app.width-48, statusText.implicitWidth+32)
         height: statusText.implicitHeight+20
         radius: 4
-        color: "#ed292929"
+        color: theme.colors.surface
         visible: viewer.loading || canvas.rendererError.length > 0 || (viewer.status.length > 0 && app.hudVisible)
-        Text { id: statusText; anchors.centerIn: parent; width: Math.min(implicitWidth,app.width-80); text: canvas.rendererError || viewer.status; color: canvas.rendererError ? "#f4d5c5" : "#bdbdbd"; wrapMode: Text.Wrap; font.pixelSize: 12 }
+        Text { id: statusText; anchors.centerIn: parent; width: Math.min(implicitWidth,app.width-80); text: canvas.rendererError || viewer.status; color: canvas.rendererError ? theme.colors.danger : theme.colors.muted; wrapMode: Text.Wrap; font.pixelSize: 12 }
     }
     FileDialog {
         id: openDialog
@@ -283,6 +289,7 @@ ApplicationWindow {
             ColumnLayout {
                 width: parent.width
                 spacing: 14
+                ActionButton { text: "Appearance · 40 theme families"; onClicked: { settingsDialog.close(); app.openThemes() } }
                 Label { text: "VIEWING"; color: app.muted; font.pixelSize: 11; font.letterSpacing: 1.2 }
                 RowLayout {
                     Layout.fillWidth: true
@@ -307,10 +314,10 @@ ApplicationWindow {
                 }
                 CheckBox { text: "Nearest-neighbor sampling for pixel inspection"; checked: canvas.nearest; onToggled: canvas.nearest=checked }
                 CheckBox { text: "Frameless window"; checked: app.frameless; onToggled: app.frameless=checked }
-                Rectangle { Layout.fillWidth: true; height: 1; color: "#414141" }
+                Rectangle { Layout.fillWidth: true; height: 1; color: theme.colors.border }
                 Label { text: "CONTROLS"; color: app.muted; font.pixelSize: 11; font.letterSpacing: 1.2 }
                 Label { Layout.fillWidth: true; text: "Use portable key names such as Ctrl+O or Shift+Right. Clear a field to unassign it. Duplicate or invalid bindings are rejected."; color: app.muted; wrapMode: Text.Wrap; font.pixelSize: 12 }
-                Label { text: app.bindingMessage; visible: text.length > 0; color: "#e5c9a6"; Layout.fillWidth: true; wrapMode: Text.Wrap }
+                Label { text: app.bindingMessage; visible: text.length > 0; color: theme.colors.primary; Layout.fillWidth: true; wrapMode: Text.Wrap }
                 Repeater {
                     model: viewer.commands
                     delegate: RowLayout {
@@ -332,7 +339,7 @@ ApplicationWindow {
                     }
                 }
                 ActionButton { text: "Restore default bindings"; onClicked: { viewer.resetBindings(); app.bindingMessage="Default bindings restored." } }
-                Label { Layout.fillWidth: true; text: "Early alpha · JPEG and PNG · SDR/sRGB output\nMonitor profile calibration and native HDR are not yet qualified."; color: "#858585"; wrapMode: Text.Wrap; font.pixelSize: 12 }
+                Label { Layout.fillWidth: true; text: "Early alpha · JPEG and PNG · SDR/sRGB output\nMonitor profile calibration and native HDR are not yet qualified."; color: theme.colors.muted; wrapMode: Text.Wrap; font.pixelSize: 12 }
             }
         }
     }

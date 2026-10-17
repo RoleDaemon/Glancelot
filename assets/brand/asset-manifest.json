@@ -1,0 +1,1644 @@
+{
+  "package": "Glancelot Slate & Ice",
+  "version": "1.0.0",
+  "canonical_source_bbox_xyxy": {
+    "01_mascot_standing": [
+      189,
+      68,
+      834,
+      956
+    ],
+    "02_mascot_waving": [
+      127,
+      68,
+      896,
+      956
+    ],
+    "03_mascot_holding_photo": [
+      112,
+      68,
+      911,
+      956
+    ],
+    "04_mascot_zoom": [
+      75,
+      68,
+      948,
+      956
+    ],
+    "05_mascot_success": [
+      154,
+      68,
+      870,
+      956
+    ],
+    "06_mascot_thinking": [
+      193,
+      68,
+      831,
+      956
+    ],
+    "07_mascot_portrait": [
+      106,
+      68,
+      918,
+      956
+    ]
+  },
+  "palette": {
+    "navy": "#233246",
+    "slate": "#496E99",
+    "ice": "#8ABBD9",
+    "silver": "#C5D2DF",
+    "iris": "#439EE0",
+    "light_background": "#F4F7FA",
+    "light_surface": "#FFFFFF",
+    "light_text": "#233246",
+    "light_primary": "#496E99",
+    "light_accent": "#8ABBD9",
+    "light_border": "#DFE5ED",
+    "dark_background": "#101923",
+    "dark_surface": "#1B2937",
+    "dark_text": "#EAF3FB",
+    "dark_primary": "#93BEE9",
+    "dark_accent": "#93DCE4",
+    "dark_border": "#33465A"
+  },
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "6cb89951abe9f56c7296caf0e330025149a21f08f455d3fb8519f5f390be6709",
+      "bytes": 4199
+    },
+    {
+      "path": "build_asset_pack.py",
+      "sha256": "32ad9c898d0b86923899104fcfccadb0a0d15f60425dc2adf5063a2310dd0032",
+      "bytes": 27445
+    },
+    {
+      "path": "icons/app/dark/glancelot-1024.png",
+      "sha256": "cbaaa4e4cebb999ba9197a24c3bd55b79c0b44adbd5964742caa1a1132afc00c",
+      "bytes": 148877,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "icons/app/dark/glancelot-128.png",
+      "sha256": "d89937bfd8197a6aa782b279c3b8d781bfefba1bf6890036c989c835bfd95c21",
+      "bytes": 13996,
+      "dimensions": [
+        128,
+        128
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "icons/app/dark/glancelot-16.png",
+      "sha256": "f9e024d0eda0489c076f650199a3f68293a31a570cf30e9e3e003baf910f7896",
+      "bytes": 713,
+      "dimensions": [
+        16,
+        16
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "icons/app/dark/glancelot-180.png",
+      "sha256": "cbdefe39ae9f0700b723d17f457f79e86076424b39daf3f99b035065af2f25a3",
+      "bytes": 21404,
+      "dimensions": [
+        180,
+        180
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "icons/app/dark/glancelot-192.png",
+      "sha256": "0482ab37bc6f75ec23e6846cce685d96b2d15876377a3e56f3baca64e740b890",
+      "bytes": 22927,
+      "dimensions": [
+        192,
+        192
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "icons/app/dark/glancelot-256.png",
+      "sha256": "8042b1d07d3cae1b8460822d7ddb9ba0b912520a52bdbbe5950781e7484af2f5",
+      "bytes": 30630,
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "icons/app/dark/glancelot-32.png",
+      "sha256": "80b868f576048dc796c7167504ff0f34151150d04e1ee74cad13e88a7161f102",
+      "bytes": 2088,
+      "dimensions": [
+        32,
+        32
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "icons/app/dark/glancelot-384.png",
+      "sha256": "86abb3549c682547953cf538ff89dae9abbc17bc650647299d51eb0ac9200c8e",
+      "bytes": 48884,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "icons/app/dark/glancelot-48.png",
+      "sha256": "48634d9a66ed0f0acc427fc947d64681299f66f08b7f8aa8198dd6295a7b8724",
+      "bytes": 3915,
+      "dimensions": [
+        48,
+        48
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "icons/app/dark/glancelot-512.png",
+      "sha256": "ec65056840db17d9b5f03818d8ce2318a695e4f06cdd1194d6b09aa92ff959d2",
+      "bytes": 68030,
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "icons/app/dark/glancelot-64.png",
+      "sha256": "c1c095826d396e3126c7e0528e729c82a80f8c74e574b2e2f40973fc57bbcf8f",
+      "bytes": 5932,
+      "dimensions": [
+        64,
+        64
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "icons/app/dark/glancelot-illustrated-1024.png",
+      "sha256": "1d0a26ab6b6849aeaf321beb5050cd6d682b72712be1cf13bad0e270cfd81f06",
+      "bytes": 814652,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "icons/app/dark/glancelot-maskable-192.png",
+      "sha256": "61176f19700f121027457c3298cbe656ddefad6b7cff2fdeb75486a0f4fbed72",
+      "bytes": 17760,
+      "dimensions": [
+        192,
+        192
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "icons/app/dark/glancelot-maskable-512.png",
+      "sha256": "3104987523d50cf6ea6605f81dabfc5e2280fa38fa1a53bed4d368d1c68d37b8",
+      "bytes": 55428,
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "icons/app/favicon.ico",
+      "sha256": "67dff7f387d7a78b708b4b6d38f6ae72065c90d5f35752329a8f54dfeaa0ebbf",
+      "bytes": 60825,
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "icons/app/glancelot-app-dark.svg",
+      "sha256": "aae639ba20c6214cd215f1a71c955e0827892b79cc2f07f3cc6d56f7a463186f",
+      "bytes": 2604
+    },
+    {
+      "path": "icons/app/glancelot-app-light.svg",
+      "sha256": "cb4359ff324472aecc5a2d5f3f079ef6d7e307127f7739a82fe07311dd427756",
+      "bytes": 2604
+    },
+    {
+      "path": "icons/app/glancelot-mark.svg",
+      "sha256": "c8916b5943e255a6a73c9d67dbd2105d6d4ec267e0a85a91925ebb0bb4ba0c1a",
+      "bytes": 2557
+    },
+    {
+      "path": "icons/app/glancelot-maskable-dark.svg",
+      "sha256": "488583c1a0cfb96a0ef25589f5243c228a3a763406cd0166e6773565d72380c6",
+      "bytes": 2654
+    },
+    {
+      "path": "icons/app/glancelot-maskable-light.svg",
+      "sha256": "942b320969703ed8ef950b7887c627c4ba03fa2e21fb2387e027c37fa2d3268c",
+      "bytes": 2654
+    },
+    {
+      "path": "icons/app/light/glancelot-1024.png",
+      "sha256": "f976f573a59a035257cc5e7ac2eb3d23dfa4fd2c7f24f317c7def0455a51a804",
+      "bytes": 152427,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "icons/app/light/glancelot-128.png",
+      "sha256": "d5acc127722d90f50adc89b8f5fa3cd7fe8fd8546d5bbc937dfd71e7322da337",
+      "bytes": 14414,
+      "dimensions": [
+        128,
+        128
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "icons/app/light/glancelot-16.png",
+      "sha256": "7901ec251dd8a2e111574868a67685f17ba77593da8731edb08f1f4bc1b24e04",
+      "bytes": 733,
+      "dimensions": [
+        16,
+        16
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "icons/app/light/glancelot-180.png",
+      "sha256": "c1200ffe9105117051fd2be18512b2542df2656e328ff37b6437a996ea93b448",
+      "bytes": 21992,
+      "dimensions": [
+        180,
+        180
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "icons/app/light/glancelot-192.png",
+      "sha256": "aef4e202139341fbde71913badf1243f1e071bdaabcfc773379a56aff713354e",
+      "bytes": 23644,
+      "dimensions": [
+        192,
+        192
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "icons/app/light/glancelot-256.png",
+      "sha256": "dbe702efc59fc13d351edeff0428c9165b9a77693cf5b6e4995fc07a97400fb9",
+      "bytes": 31789,
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "icons/app/light/glancelot-32.png",
+      "sha256": "a4848a35b02d91b9f698eed2e1adc7e27e5e1313c23f684146bcef529f4aba89",
+      "bytes": 2134,
+      "dimensions": [
+        32,
+        32
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "icons/app/light/glancelot-384.png",
+      "sha256": "053ca6ee09483c9afa7f31f2a18356219cca8a827740466d82d087b764a9aaf7",
+      "bytes": 50543,
+      "dimensions": [
+        384,
+        384
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "icons/app/light/glancelot-48.png",
+      "sha256": "4db816d090ef3ee5c2784b6a724d2bcbeb064f306585da8d1c848d9923f98cf5",
+      "bytes": 3991,
+      "dimensions": [
+        48,
+        48
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "icons/app/light/glancelot-512.png",
+      "sha256": "8bdd58ea24a7ff0782987226688af7cab8421aa0b5afbad06e0778594a7c718f",
+      "bytes": 70341,
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "icons/app/light/glancelot-64.png",
+      "sha256": "02b28c9ceb10c8afb68753a43f0942844f2e5eeab8b9a2c3608d56b5f2d9b31a",
+      "bytes": 6096,
+      "dimensions": [
+        64,
+        64
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "icons/app/light/glancelot-illustrated-1024.png",
+      "sha256": "fc9cb1884f16fb2194517b39ef9edfab8303eb9b15a73a951cdffdb8c2cee7de",
+      "bytes": 810016,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "icons/app/light/glancelot-maskable-192.png",
+      "sha256": "bc432561eee405add88bd6d3b132aea72c995018765aa1df885d06f1a2b54295",
+      "bytes": 18367,
+      "dimensions": [
+        192,
+        192
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "icons/app/light/glancelot-maskable-512.png",
+      "sha256": "fc83afe1a0df3f485fc78c916ef3db7fe326146a8d9778869bee9c860c098c22",
+      "bytes": 57311,
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "icons/ui/currentColor/add.svg",
+      "sha256": "502968f1f887cfdf554101ba8a4519b1b0ca4f3708729ca40c0cf22438d2b946",
+      "bytes": 234
+    },
+    {
+      "path": "icons/ui/currentColor/albums.svg",
+      "sha256": "264ace0a24167ce11d4b9da4a1820f1426a20adb1e0d31fd57725a2035910c2c",
+      "bytes": 401
+    },
+    {
+      "path": "icons/ui/currentColor/check.svg",
+      "sha256": "838090df178dedbdc20950afd2ffe4deee9e3c34b396d93563163e0e1ea651f8",
+      "bytes": 234
+    },
+    {
+      "path": "icons/ui/currentColor/close.svg",
+      "sha256": "45677797c088f5de70db2ccb6307735f2139c957759bf4f59ba0d40da3cf7099",
+      "bytes": 240
+    },
+    {
+      "path": "icons/ui/currentColor/compare.svg",
+      "sha256": "4480a19dee5a33dd488dd79d333c64d6f3996d030ac69b8be73f226482c9149c",
+      "bytes": 279
+    },
+    {
+      "path": "icons/ui/currentColor/delete.svg",
+      "sha256": "015b05dbdb0ab6a1bafca226c5fdd3f28a9e3f5b5f5926e42c868122c2227cf6",
+      "bytes": 265
+    },
+    {
+      "path": "icons/ui/currentColor/download.svg",
+      "sha256": "743a4b6e222d861c61310ba163229f1252fd3129cd37bffef6069a5f53996078",
+      "bytes": 257
+    },
+    {
+      "path": "icons/ui/currentColor/eye.svg",
+      "sha256": "c3178c8067aa2da11d89b4d0a7062947713c645680e91f9dabc4a982adf1e81d",
+      "bytes": 293
+    },
+    {
+      "path": "icons/ui/currentColor/favorite-filled.svg",
+      "sha256": "3fb4245054ce549bcca89a5844787a9431737bbc45e63d7835bb241a4aef1077",
+      "bytes": 340
+    },
+    {
+      "path": "icons/ui/currentColor/favorites.svg",
+      "sha256": "abe6c650f4f04b7f43b217689d86f4245f3caa4fb8bc08736a9a2c40603dcf7c",
+      "bytes": 314
+    },
+    {
+      "path": "icons/ui/currentColor/filter.svg",
+      "sha256": "3166f28d3580b733333b2814c32b869b25c8e2174a326aad6a4436ff19385ef0",
+      "bytes": 244
+    },
+    {
+      "path": "icons/ui/currentColor/folder.svg",
+      "sha256": "ecc053fa68291f458f96efa2e46cf235eb5874375e1ee187435894b0d29a084b",
+      "bytes": 239
+    },
+    {
+      "path": "icons/ui/currentColor/fullscreen.svg",
+      "sha256": "90c426d9b190d0c4a5de96b66b987ad50ddd0802030a70d7feb26457d79413ae",
+      "bytes": 261
+    },
+    {
+      "path": "icons/ui/currentColor/grid.svg",
+      "sha256": "54f7bd8ad54516228175e6f575c0c1b492606002c4dfcf47af5630521fda7477",
+      "bytes": 399
+    },
+    {
+      "path": "icons/ui/currentColor/help.svg",
+      "sha256": "1eb39b4e001378acbf7e747fc4248d1e3fcc7766d525893e396792e70a9d54ad",
+      "bytes": 304
+    },
+    {
+      "path": "icons/ui/currentColor/info.svg",
+      "sha256": "bb2aa2a4587bd4bc77900e4b914743dde143c50727717b1d952597d437fc4efc",
+      "bytes": 266
+    },
+    {
+      "path": "icons/ui/currentColor/library.svg",
+      "sha256": "79c6e8141f3cabdfaa02fe0b49e4db685755399d0fab4ec636a4fb68875051f2",
+      "bytes": 327
+    },
+    {
+      "path": "icons/ui/currentColor/next.svg",
+      "sha256": "06600ec03ae104994c195b5084c01c641176f096b7be7862f3583a55858a28a2",
+      "bytes": 231
+    },
+    {
+      "path": "icons/ui/currentColor/previous.svg",
+      "sha256": "45efd50192f5f6e4888b25f479641af8930a1d8d84f78531a35c35587ba1afab",
+      "bytes": 236
+    },
+    {
+      "path": "icons/ui/currentColor/rotate.svg",
+      "sha256": "c2afb485c89803b70c2c9ad778fd51e816e155267330c1066cf73933ada9ee6f",
+      "bytes": 252
+    },
+    {
+      "path": "icons/ui/currentColor/search.svg",
+      "sha256": "1a11ff136b612ea0727979e9df0c989984e28b58fd15b42c72aaaf69caebb279",
+      "bytes": 266
+    },
+    {
+      "path": "icons/ui/currentColor/settings.svg",
+      "sha256": "fb06d9511e81336e6b183c01e1b95fe66cf2d20aedb83c8d8cc54a99a32c0457",
+      "bytes": 450
+    },
+    {
+      "path": "icons/ui/currentColor/share.svg",
+      "sha256": "72f00a552c4835c8de5c90757781d495756e4c71f5f5fd6dc3fed42aae26e510",
+      "bytes": 329
+    },
+    {
+      "path": "icons/ui/currentColor/single-view.svg",
+      "sha256": "425af9241f6ec29d6ae771a613044e2f615768643be453d8cfbc0954479d44bc",
+      "bytes": 296
+    },
+    {
+      "path": "icons/ui/currentColor/slideshow.svg",
+      "sha256": "cdffdf9abfadcdc01c2a25c2af86e492ce94e0952c37f700a1bef7a4be1b4773",
+      "bytes": 287
+    },
+    {
+      "path": "icons/ui/currentColor/sort.svg",
+      "sha256": "4142d1a3da8ae8e69e01ff2aa42ad1a25e0024381a91cd2db6091930890ffafd",
+      "bytes": 241
+    },
+    {
+      "path": "icons/ui/currentColor/star.svg",
+      "sha256": "3eb4f0be1bb37f0dd3d7901ecdab36f9925d454ee53f673209ff3650afa20481",
+      "bytes": 279
+    },
+    {
+      "path": "icons/ui/currentColor/tag.svg",
+      "sha256": "7af2a8baa05909b2c4eb7df3be1592415df14edad6c8353ab555dfa8aa52b389",
+      "bytes": 267
+    },
+    {
+      "path": "icons/ui/currentColor/upload.svg",
+      "sha256": "34defaf5337f864a7dab81ec50eda2fa0da94b0f3a18203fd4613f51ef6faa94",
+      "bytes": 255
+    },
+    {
+      "path": "icons/ui/currentColor/zoom-in.svg",
+      "sha256": "ed266bf22923305d06f0d9d2b6afa32af57fc926514e3fa3e990b5f82248d3b0",
+      "bytes": 275
+    },
+    {
+      "path": "icons/ui/currentColor/zoom-out.svg",
+      "sha256": "8e56b89a5d8b6e56a9ee422703ef82a10486f373fa9d8a26f1771a1413551e3e",
+      "bytes": 269
+    },
+    {
+      "path": "icons/ui/dark/add-accent.svg",
+      "sha256": "2f07e67857523bb785a4103df58e0be111c46989519c8a0d3d502182a7bae8bb",
+      "bytes": 229
+    },
+    {
+      "path": "icons/ui/dark/add.svg",
+      "sha256": "a4f4bf3c27495e9d1aaed2316b53b6d1c9cd7d1373790708cc7fdfdfe46cdc15",
+      "bytes": 229
+    },
+    {
+      "path": "icons/ui/dark/albums-accent.svg",
+      "sha256": "882000b6445aff8a21e84c2dcf1524b5bbd4f866577216494e4fe9b950a8d2d2",
+      "bytes": 396
+    },
+    {
+      "path": "icons/ui/dark/albums.svg",
+      "sha256": "4a79a00f105fba652459ef19d027b4c9c0e34a690ff8d9492541a2b60f0b5444",
+      "bytes": 396
+    },
+    {
+      "path": "icons/ui/dark/check-accent.svg",
+      "sha256": "87f1ee02ba4d97cfcc909541b08dfd8ed50bbaa2f0930cee8123b752f7fc5c76",
+      "bytes": 229
+    },
+    {
+      "path": "icons/ui/dark/check.svg",
+      "sha256": "d182b396ceb4188ab900d8348a7fba8d70de0fbefcb84346fedf7ad482fa6669",
+      "bytes": 229
+    },
+    {
+      "path": "icons/ui/dark/close-accent.svg",
+      "sha256": "08e9127bfcc4564374ee9d685a1e6e9efca4cd3b33d427680bdea795adf9f0e0",
+      "bytes": 235
+    },
+    {
+      "path": "icons/ui/dark/close.svg",
+      "sha256": "7fbc03dda21802ec00106c3ff4a611ecebf9af2a71e939e01fa2dcd1f0934390",
+      "bytes": 235
+    },
+    {
+      "path": "icons/ui/dark/compare-accent.svg",
+      "sha256": "6673a2e50e2898594bf9cad4477c4e39e829b19eb16d7429746d34db7c836d73",
+      "bytes": 274
+    },
+    {
+      "path": "icons/ui/dark/compare.svg",
+      "sha256": "3ad7c40bd152f7d73aa4da780fb203094328f301d18e9d9338583f81cf912a32",
+      "bytes": 274
+    },
+    {
+      "path": "icons/ui/dark/delete-accent.svg",
+      "sha256": "92a78d43255f4b0dbc720d65c3d27ee812ce0bb41d5318fb00b6e83942a6a242",
+      "bytes": 260
+    },
+    {
+      "path": "icons/ui/dark/delete.svg",
+      "sha256": "36d2e7bf82659ee2ce0913d1882801270365dc099b087102e6f20a0f23213bee",
+      "bytes": 260
+    },
+    {
+      "path": "icons/ui/dark/download-accent.svg",
+      "sha256": "9e47e7b12a055efcaf5bae46e152805181bd62e961ff2b48e4157f58dbf9814b",
+      "bytes": 252
+    },
+    {
+      "path": "icons/ui/dark/download.svg",
+      "sha256": "5be002575d544e12f1263a5d7d6d8887ac5d22811f44540f96f0967c1c278227",
+      "bytes": 252
+    },
+    {
+      "path": "icons/ui/dark/eye-accent.svg",
+      "sha256": "6a49021181ae769f630ff2743343cf2fa79d8ed21c9df402402bd834932c7d17",
+      "bytes": 288
+    },
+    {
+      "path": "icons/ui/dark/eye.svg",
+      "sha256": "b682142af8e1d161b24d066273fb7dc66aabaaf9cb39801ea367c21bbc0f962c",
+      "bytes": 288
+    },
+    {
+      "path": "icons/ui/dark/favorite-filled-accent.svg",
+      "sha256": "29f1028e13daef264faf551989f7a1257b8ee1398ab7527c0c5e8ff2b5892413",
+      "bytes": 330
+    },
+    {
+      "path": "icons/ui/dark/favorite-filled.svg",
+      "sha256": "7679b621d409cb2c3a992f8de2b92212f21a03e87988293a52cf427d6e75449d",
+      "bytes": 330
+    },
+    {
+      "path": "icons/ui/dark/favorites-accent.svg",
+      "sha256": "be9127a3e82b810ea05caa0152b5443b2211cab30ceb5fbf31d89cdd1ceb8802",
+      "bytes": 309
+    },
+    {
+      "path": "icons/ui/dark/favorites.svg",
+      "sha256": "e3fa9ddaa16482b461a39157dfcc65dfdc0a056dbb63e12e039e146d078a2fa9",
+      "bytes": 309
+    },
+    {
+      "path": "icons/ui/dark/filter-accent.svg",
+      "sha256": "588f9bb8c6bc6d24d305aeb6f21fb1bdd1d95117522f9bda6a3795abca416e43",
+      "bytes": 239
+    },
+    {
+      "path": "icons/ui/dark/filter.svg",
+      "sha256": "83f508c52927c6f95a3dd477f74fb8b952bf5d2a9c09ac57624c803f96c9af6d",
+      "bytes": 239
+    },
+    {
+      "path": "icons/ui/dark/folder-accent.svg",
+      "sha256": "8f373694c60084054b1173155335ad2aca5b1e7e346802ae61e60b17bb2fe6f8",
+      "bytes": 234
+    },
+    {
+      "path": "icons/ui/dark/folder.svg",
+      "sha256": "5d2ba9d0a1d10cf8b2e6489cc02727b79eb063439f1d342517a4c41bce783019",
+      "bytes": 234
+    },
+    {
+      "path": "icons/ui/dark/fullscreen-accent.svg",
+      "sha256": "e0814606a5911094bc0890660b06b2b12e7d39c178ba030b94502df7afc54714",
+      "bytes": 256
+    },
+    {
+      "path": "icons/ui/dark/fullscreen.svg",
+      "sha256": "13c6c9cd472b4a2228c113802a525a7040c028bf50d8c55ae0aae0a5a51403c8",
+      "bytes": 256
+    },
+    {
+      "path": "icons/ui/dark/grid-accent.svg",
+      "sha256": "2a84a021a6ebe870b168277419a293261537cff547d8ec514d562a91e5905602",
+      "bytes": 394
+    },
+    {
+      "path": "icons/ui/dark/grid.svg",
+      "sha256": "106ebabda39bc37fe3d22f50d0f622a29323f855ce4cecdbb5ecdf9ebcee3662",
+      "bytes": 394
+    },
+    {
+      "path": "icons/ui/dark/help-accent.svg",
+      "sha256": "08421c5ce8fa0c2fbe8206ab815afe0e81336f3c0dc554d78b5ca51d2fb13e0b",
+      "bytes": 299
+    },
+    {
+      "path": "icons/ui/dark/help.svg",
+      "sha256": "e47136a97fb09b40b7bf69515c7b52357b7a3dd81b633051b3dd80374c92f244",
+      "bytes": 299
+    },
+    {
+      "path": "icons/ui/dark/info-accent.svg",
+      "sha256": "c2d1b66fdef8a7c5c142893a9e290d8c4eb7d5cd9d0fa58b7c36b215142973f6",
+      "bytes": 261
+    },
+    {
+      "path": "icons/ui/dark/info.svg",
+      "sha256": "972dd23ec07d1ffa9b07ee11b702681604735cefb47f45f53069ad2b20f908ac",
+      "bytes": 261
+    },
+    {
+      "path": "icons/ui/dark/library-accent.svg",
+      "sha256": "7580edd85d6b6259984b0fbd4a875a97fac46dcd35e1f27bf10fe025bec82fed",
+      "bytes": 322
+    },
+    {
+      "path": "icons/ui/dark/library.svg",
+      "sha256": "6683dd4c6536747d043bc010c43deef3e0cb6a023734a1c67e40c03e893c40a3",
+      "bytes": 322
+    },
+    {
+      "path": "icons/ui/dark/next-accent.svg",
+      "sha256": "dd13c70c683b4b1e55cd845bb2bf09a8a56fe7bf3a648c114cea3bf9df9f4ecb",
+      "bytes": 226
+    },
+    {
+      "path": "icons/ui/dark/next.svg",
+      "sha256": "1b6292fbc7d5a9b8bc753b93a3e18c4a18abe4d079705620b7cd5e1606a3ecb5",
+      "bytes": 226
+    },
+    {
+      "path": "icons/ui/dark/previous-accent.svg",
+      "sha256": "3b49aaa4be2d79b718e3869c9d8eb4493f0e0becc7643a5b93e31b3aba9119db",
+      "bytes": 231
+    },
+    {
+      "path": "icons/ui/dark/previous.svg",
+      "sha256": "ad7d1309739aba2bdcb725e0e27b7a0a4d700b683cfa48fcac2c8b506e1d6f9d",
+      "bytes": 231
+    },
+    {
+      "path": "icons/ui/dark/rotate-accent.svg",
+      "sha256": "6957912f7120166146bdc64b4ff33777938dc0bf146591140765d1a1ff1e07dd",
+      "bytes": 247
+    },
+    {
+      "path": "icons/ui/dark/rotate.svg",
+      "sha256": "a79c65dbfd906f743ddc757ab868024855f0b98dda7fefa5cb242057234c63eb",
+      "bytes": 247
+    },
+    {
+      "path": "icons/ui/dark/search-accent.svg",
+      "sha256": "4e473d8be41a8509c7876062098ca9872e5057434d91023a5588aacda8026f99",
+      "bytes": 261
+    },
+    {
+      "path": "icons/ui/dark/search.svg",
+      "sha256": "e2a96013626d8511ed797b06fc1f66794a91f4d14868595ff42e6d1c032c4216",
+      "bytes": 261
+    },
+    {
+      "path": "icons/ui/dark/settings-accent.svg",
+      "sha256": "5f2d3890c119b3246374927b6bcc3e835ac4a30aea5d9c85e7c627eda1107446",
+      "bytes": 445
+    },
+    {
+      "path": "icons/ui/dark/settings.svg",
+      "sha256": "036c2c38b041c973ee30d5a6e3dec7b3aa104a16d363676858b708f293da82ee",
+      "bytes": 445
+    },
+    {
+      "path": "icons/ui/dark/share-accent.svg",
+      "sha256": "02bbfb5f0af81b808000095363a99abd3db8457072a0c6d3921415a2b47b07f4",
+      "bytes": 324
+    },
+    {
+      "path": "icons/ui/dark/share.svg",
+      "sha256": "b22ae4479796e3aaa4cf0d5c939b2c0caa5d1ffb26be6a926f9b84127e6f5fa6",
+      "bytes": 324
+    },
+    {
+      "path": "icons/ui/dark/single-view-accent.svg",
+      "sha256": "49933bc2a8ecbc3ddacec462b9d56c895cb57e8449ab13647fd8df701e7cac06",
+      "bytes": 291
+    },
+    {
+      "path": "icons/ui/dark/single-view.svg",
+      "sha256": "989373e830d6167119bded03f946911268962ceaf6a279d6795db90adf862288",
+      "bytes": 291
+    },
+    {
+      "path": "icons/ui/dark/slideshow-accent.svg",
+      "sha256": "638a1ee94e947543022133662a8bfb0abaf4b3cbd7fdc9a40375bfaeb113f31f",
+      "bytes": 282
+    },
+    {
+      "path": "icons/ui/dark/slideshow.svg",
+      "sha256": "23c583e86ee6f93c04d7d5c7767e0a020852965240306290c8896953ec11f635",
+      "bytes": 282
+    },
+    {
+      "path": "icons/ui/dark/sort-accent.svg",
+      "sha256": "6de026c5edd55015cfb9a87a6353beccefe264e916adf937ff24c9a10a12a467",
+      "bytes": 236
+    },
+    {
+      "path": "icons/ui/dark/sort.svg",
+      "sha256": "43ea075f85c7f46a35b2168a45841d9eae224a9d527fc6e8efed103678dbb461",
+      "bytes": 236
+    },
+    {
+      "path": "icons/ui/dark/star-accent.svg",
+      "sha256": "f0fe76d9703c9b29ef2971d1179f2f49221d9da58f11a9281b725a684b6bd9f1",
+      "bytes": 274
+    },
+    {
+      "path": "icons/ui/dark/star.svg",
+      "sha256": "8d1621b7101c1e647191be8575afca8e0dcb2b5bad208a39bedbac990d8b9b14",
+      "bytes": 274
+    },
+    {
+      "path": "icons/ui/dark/tag-accent.svg",
+      "sha256": "7c5b853b9248279e953c4e76d10f9d8d4cd3b38f15124db575f445e21c695643",
+      "bytes": 262
+    },
+    {
+      "path": "icons/ui/dark/tag.svg",
+      "sha256": "6b1bba07b9e46580a0575be15193572b24751495e0beeb3af8ff5edc9f6b8edd",
+      "bytes": 262
+    },
+    {
+      "path": "icons/ui/dark/upload-accent.svg",
+      "sha256": "2c58f6c90ae86d0be30d0e5f592ee08d1dd4e4ee82dd34e8b04df6da5b14a953",
+      "bytes": 250
+    },
+    {
+      "path": "icons/ui/dark/upload.svg",
+      "sha256": "7d7253c817abe202a1fb36b6310d98b877429b4dba76427417966f323db7840b",
+      "bytes": 250
+    },
+    {
+      "path": "icons/ui/dark/zoom-in-accent.svg",
+      "sha256": "7d1a86865e4317c41eee20b001d3a90be15217bb174fe586dd2aa011f96de6cf",
+      "bytes": 270
+    },
+    {
+      "path": "icons/ui/dark/zoom-in.svg",
+      "sha256": "f716b002b2f0daef76728d5b9031e05e32ac5cf031d52e196fc837493feb8fe1",
+      "bytes": 270
+    },
+    {
+      "path": "icons/ui/dark/zoom-out-accent.svg",
+      "sha256": "7f5881eb4575aa6232296535f0d2e329c2aa9f2620c802fd1047c92666d04977",
+      "bytes": 264
+    },
+    {
+      "path": "icons/ui/dark/zoom-out.svg",
+      "sha256": "6e3869341f9ad224907d33be887edc4e789cf2ef7f5c4a076ae0cd247e64666b",
+      "bytes": 264
+    },
+    {
+      "path": "icons/ui/light/add-accent.svg",
+      "sha256": "fe6647a6c5ac6869af20fece52b15b7ac1ace83a69077325e127676bc9c41035",
+      "bytes": 229
+    },
+    {
+      "path": "icons/ui/light/add.svg",
+      "sha256": "56ac05375579ef50728976f1c52d2d423060080e280cb96e44a88cb050ad2946",
+      "bytes": 229
+    },
+    {
+      "path": "icons/ui/light/albums-accent.svg",
+      "sha256": "934b64e7c269bc682c910242e38327fc96c2ef047ff340cfe16503a9fafdba60",
+      "bytes": 396
+    },
+    {
+      "path": "icons/ui/light/albums.svg",
+      "sha256": "eb467ddaef2fcf998d9c0c91e4e7dcbf38026797e9368a7488e5064f90ead89b",
+      "bytes": 396
+    },
+    {
+      "path": "icons/ui/light/check-accent.svg",
+      "sha256": "82ee3d79bd664e7ce972440c381e3ec97ee97959aae600ba08af03f5d3d1b76e",
+      "bytes": 229
+    },
+    {
+      "path": "icons/ui/light/check.svg",
+      "sha256": "e15f43b77a086e2947459b32fa84a6812a0da711c3a328870b5a8b1405b01664",
+      "bytes": 229
+    },
+    {
+      "path": "icons/ui/light/close-accent.svg",
+      "sha256": "ba71d8be1e15019bebecaf928bb6f7dbe96271df2039bd7cec078295b6d65f97",
+      "bytes": 235
+    },
+    {
+      "path": "icons/ui/light/close.svg",
+      "sha256": "633303e34a62476cab7e88fddd4fab6d523a4c9948aa76337efb17704d7f4d59",
+      "bytes": 235
+    },
+    {
+      "path": "icons/ui/light/compare-accent.svg",
+      "sha256": "62b7845f76d24c6e08bb63fd09e4239a07cfd4219c69af10156f4d3034a0e35a",
+      "bytes": 274
+    },
+    {
+      "path": "icons/ui/light/compare.svg",
+      "sha256": "dbbfd5b3e33853ed7d524ab8ea94fe8e5b045e96bdf2327880c48551c875d75b",
+      "bytes": 274
+    },
+    {
+      "path": "icons/ui/light/delete-accent.svg",
+      "sha256": "8ba7e1024c66e63e88fda2ba01620c3cd853bf3c5f6e61813f40dd02003af13a",
+      "bytes": 260
+    },
+    {
+      "path": "icons/ui/light/delete.svg",
+      "sha256": "73f0f709339283473235c1d5aa298221cd41efa8c3887f84157ab37dcae9a8c3",
+      "bytes": 260
+    },
+    {
+      "path": "icons/ui/light/download-accent.svg",
+      "sha256": "d85568860246dea62e74240c0d40fa022916991842f2350ea293e2016eb5ed57",
+      "bytes": 252
+    },
+    {
+      "path": "icons/ui/light/download.svg",
+      "sha256": "4bb7d0592a4369f3fef9e3822dd6fc5b0c195355e6abd3ed77bfd18f3747a13e",
+      "bytes": 252
+    },
+    {
+      "path": "icons/ui/light/eye-accent.svg",
+      "sha256": "9746791eec5e0f3a6708509287ae78ca4de44f9095f6d12653b20a74e2e32b69",
+      "bytes": 288
+    },
+    {
+      "path": "icons/ui/light/eye.svg",
+      "sha256": "2fffe0d98da465f15073bb55c7f517ac6cadd2860a103a008d7dbda9bfc4698b",
+      "bytes": 288
+    },
+    {
+      "path": "icons/ui/light/favorite-filled-accent.svg",
+      "sha256": "11a679d9cf7c224dc0f2c4d943f6391b08adcdced87f9b7fb89b0cea45875abe",
+      "bytes": 330
+    },
+    {
+      "path": "icons/ui/light/favorite-filled.svg",
+      "sha256": "80a1a0932f2408a4062d7b64e45d6572808d9b1d206acb308365267b9071c1aa",
+      "bytes": 330
+    },
+    {
+      "path": "icons/ui/light/favorites-accent.svg",
+      "sha256": "8198500f02bf03a1c0b6508c7956710cab99b12804c38d55e606c6f35493133b",
+      "bytes": 309
+    },
+    {
+      "path": "icons/ui/light/favorites.svg",
+      "sha256": "1eabf6037fa3a166212783a4c849dae512e20a749a327bc281c859188948932f",
+      "bytes": 309
+    },
+    {
+      "path": "icons/ui/light/filter-accent.svg",
+      "sha256": "1bc535c8aa824bce780791bdc1e2cc7b3cd15dd0a659ec12aedc5c989e2cd1ab",
+      "bytes": 239
+    },
+    {
+      "path": "icons/ui/light/filter.svg",
+      "sha256": "69fef4c6bf1f1bf11cfcf93740c8ed8e08c988f8b0e77847d8eabca1307858c7",
+      "bytes": 239
+    },
+    {
+      "path": "icons/ui/light/folder-accent.svg",
+      "sha256": "c1df56a6c753c12396733e9a58b4e095941712a287bb5d5a136aebb70f9e9441",
+      "bytes": 234
+    },
+    {
+      "path": "icons/ui/light/folder.svg",
+      "sha256": "6c94c902990e1f1f4c686badee63c2c134cec5cd41f3ac183d72843cabfec495",
+      "bytes": 234
+    },
+    {
+      "path": "icons/ui/light/fullscreen-accent.svg",
+      "sha256": "10f73dd52d9b1f360f18950de891d7761bae6a731da3f552d679e95fbcbdeb7b",
+      "bytes": 256
+    },
+    {
+      "path": "icons/ui/light/fullscreen.svg",
+      "sha256": "fc68f5cf4d98a307e090966808e7fa6eb3c0daf62238d23542fef16b2d125290",
+      "bytes": 256
+    },
+    {
+      "path": "icons/ui/light/grid-accent.svg",
+      "sha256": "50ca5d6315541925c0a962e63b9d0c1140255c45d11bb25ef9d35c352026e2a9",
+      "bytes": 394
+    },
+    {
+      "path": "icons/ui/light/grid.svg",
+      "sha256": "bd47aa03713cbb4e2f692532afa502367d83619fd2874a43af9b65374768a734",
+      "bytes": 394
+    },
+    {
+      "path": "icons/ui/light/help-accent.svg",
+      "sha256": "d973461cca519fc337e28b7d527aef8623bded2bfe227dff8b763a5da282b889",
+      "bytes": 299
+    },
+    {
+      "path": "icons/ui/light/help.svg",
+      "sha256": "a04223e6b33d26e230441168d5b32de188364f8f6ab50dc09531e3c0f2dd44a4",
+      "bytes": 299
+    },
+    {
+      "path": "icons/ui/light/info-accent.svg",
+      "sha256": "d0ed815edc6170e5ab0c2cec657515dd2468ce9b6a4611db61c587268539cbc9",
+      "bytes": 261
+    },
+    {
+      "path": "icons/ui/light/info.svg",
+      "sha256": "16a8f5bef5f603919aba7fa1694bb798161ca207e14ca6d58691981fcd9cf443",
+      "bytes": 261
+    },
+    {
+      "path": "icons/ui/light/library-accent.svg",
+      "sha256": "c286abfc6b5103180774cf7bb4cd8ebd16f1634d3a0318e5039423e81160ff71",
+      "bytes": 322
+    },
+    {
+      "path": "icons/ui/light/library.svg",
+      "sha256": "02adde3e62aed5e835499e5b8b0f4f05eca16131d96713b22b03703873ef5311",
+      "bytes": 322
+    },
+    {
+      "path": "icons/ui/light/next-accent.svg",
+      "sha256": "333d87514e60390ec893895343b4e85d6532c154a261e073b24b1f584cbe96fd",
+      "bytes": 226
+    },
+    {
+      "path": "icons/ui/light/next.svg",
+      "sha256": "88d34ba94e6ff698629d36ea71ed0b13dc4cb9f75acde0626e0b75b014606249",
+      "bytes": 226
+    },
+    {
+      "path": "icons/ui/light/previous-accent.svg",
+      "sha256": "4212b0583fe54ec82e4899adffe8f56e04d0b86927a3abf38e795a34534e1d76",
+      "bytes": 231
+    },
+    {
+      "path": "icons/ui/light/previous.svg",
+      "sha256": "45332d3dc16e9d217ebb57a2c0e4644b8586214c3cd0502ce17b0bacc4f0a5c5",
+      "bytes": 231
+    },
+    {
+      "path": "icons/ui/light/rotate-accent.svg",
+      "sha256": "305ba2c64f8bdc6d65748c0343232e2b01fda58f102e1e0ef6a635aee4199653",
+      "bytes": 247
+    },
+    {
+      "path": "icons/ui/light/rotate.svg",
+      "sha256": "d481036eaa72a8183a1a9ba258c8bb1fef129686ec2c7a833d054c263fb87ba5",
+      "bytes": 247
+    },
+    {
+      "path": "icons/ui/light/search-accent.svg",
+      "sha256": "29833425527c38e7708aa76e8a03cef7fada2ebc66a91098f881b79c0d9715b9",
+      "bytes": 261
+    },
+    {
+      "path": "icons/ui/light/search.svg",
+      "sha256": "a9d62aa01fb58cae81f7d0ea74aa7e019305fe5d0c9bc4d37a17bad0689f4fd7",
+      "bytes": 261
+    },
+    {
+      "path": "icons/ui/light/settings-accent.svg",
+      "sha256": "6182349bf94027dcab29984d05456d03139dbd1985976286f6970fafcee2ff34",
+      "bytes": 445
+    },
+    {
+      "path": "icons/ui/light/settings.svg",
+      "sha256": "952360f9ab38ccf24268d39f8fea6e542213d443f33cb703beb596052337660f",
+      "bytes": 445
+    },
+    {
+      "path": "icons/ui/light/share-accent.svg",
+      "sha256": "fb43845e2aeaf34d2032f95031a580d7685ef3df44eedc06edf702ad6ef8911c",
+      "bytes": 324
+    },
+    {
+      "path": "icons/ui/light/share.svg",
+      "sha256": "5af26bb2d0f60099709fe486e328687c08c94f5f580cc9333f222c8f1858578e",
+      "bytes": 324
+    },
+    {
+      "path": "icons/ui/light/single-view-accent.svg",
+      "sha256": "5f39bdc00348c84d79b17ab91b1da0d9532608cd096a4f1aeab3d57156972367",
+      "bytes": 291
+    },
+    {
+      "path": "icons/ui/light/single-view.svg",
+      "sha256": "6abf3c2041d40b831bee211cd277b0577092af742554834b0b9c1ef5cd8cdb53",
+      "bytes": 291
+    },
+    {
+      "path": "icons/ui/light/slideshow-accent.svg",
+      "sha256": "3d7f8bdaaed25586438af933e4945f4a412aefcef0d80ef4094edcb91a8c125b",
+      "bytes": 282
+    },
+    {
+      "path": "icons/ui/light/slideshow.svg",
+      "sha256": "375666c10e94cef76651116ca1ec8ed3360ffc2be8dc825e6fae3e64838ec702",
+      "bytes": 282
+    },
+    {
+      "path": "icons/ui/light/sort-accent.svg",
+      "sha256": "2c8d4d0ffb08cadc18633a0de4d470b067f5551871873fe15ce619aacad9314b",
+      "bytes": 236
+    },
+    {
+      "path": "icons/ui/light/sort.svg",
+      "sha256": "3a2ad8ae12a9c011c19aaa794872c46b659b108e73007add83043f215ec7846f",
+      "bytes": 236
+    },
+    {
+      "path": "icons/ui/light/star-accent.svg",
+      "sha256": "da59879d762a6cd1f20648ccb66a7be1b9ea720018793cac95ddc1fb1b9e353c",
+      "bytes": 274
+    },
+    {
+      "path": "icons/ui/light/star.svg",
+      "sha256": "c8abde6618b1b4f458c3ad786b59e2da7c942df2279c0d082f53c75115c6161d",
+      "bytes": 274
+    },
+    {
+      "path": "icons/ui/light/tag-accent.svg",
+      "sha256": "7591cdad4ae836abb64c29dde291ba8e6ebf42d99df416ef64632f0a3b275611",
+      "bytes": 262
+    },
+    {
+      "path": "icons/ui/light/tag.svg",
+      "sha256": "46319040f4d39256c8a219f8ff14f32355c4b85002725c9dcdd4f378e4477c94",
+      "bytes": 262
+    },
+    {
+      "path": "icons/ui/light/upload-accent.svg",
+      "sha256": "845e7dcf084aa2a9a0118d6fb0a315e0e2191fb6405d974352c3eacd425819ea",
+      "bytes": 250
+    },
+    {
+      "path": "icons/ui/light/upload.svg",
+      "sha256": "b8efd97f490f2b198c6e2137ef6106c3be32c4b5f63df3c1f537f50a13d6a006",
+      "bytes": 250
+    },
+    {
+      "path": "icons/ui/light/zoom-in-accent.svg",
+      "sha256": "26eec0201fd8c76748827e8f88d67b29ec708560d60bb9a4202b84d5f682935d",
+      "bytes": 270
+    },
+    {
+      "path": "icons/ui/light/zoom-in.svg",
+      "sha256": "5a66c00eb45b605b1adaa1a8c9cd53384ca6cea02006eeba7703d253748f3b71",
+      "bytes": 270
+    },
+    {
+      "path": "icons/ui/light/zoom-out-accent.svg",
+      "sha256": "b3542cac95bf7db5f88fba02977b4a7ef7ddecf9b54ca4887a4f101132e689be",
+      "bytes": 264
+    },
+    {
+      "path": "icons/ui/light/zoom-out.svg",
+      "sha256": "662d259e1acd7555c044b912432c54b45d300e5a411d2dbed9a45b90b0474f39",
+      "bytes": 264
+    },
+    {
+      "path": "manifest.webmanifest",
+      "sha256": "d5767f864283df83856f10da4f3ae6de4ed7e720668f4783834ab6f4d55f63b9",
+      "bytes": 817
+    },
+    {
+      "path": "mascots/dark/01_mascot_standing.png",
+      "sha256": "521693679ff933a328bd42eff28238a3bb2dd7deb203ac3530371cbf45c55e30",
+      "bytes": 675540,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "mascots/dark/02_mascot_waving.png",
+      "sha256": "628c8d80de24b31fd4abca99b75ea85ab47afcdb46246238aaf6700c6ca47eb3",
+      "bytes": 695182,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "mascots/dark/03_mascot_holding_photo.png",
+      "sha256": "93ba32a2eb7d244fa56bd5a34d1522043ab423f75b92aa690b1e968abba02e9e",
+      "bytes": 714257,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "mascots/dark/04_mascot_zoom.png",
+      "sha256": "dd5039bf9402c4bfa40eea1076a77033b270ff2a7d362ae29aee3460328f4486",
+      "bytes": 757699,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "mascots/dark/05_mascot_success.png",
+      "sha256": "f4e4def50005fe9fcbedefc80041adf3af09a6ad8f9f2fbcc3345b7708723f7f",
+      "bytes": 697791,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "mascots/dark/06_mascot_thinking.png",
+      "sha256": "4645ae8e93bc00b70d12ed855dc6e361fe385e45d4a4b847d284a028545784e5",
+      "bytes": 669935,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "mascots/dark/07_mascot_portrait.png",
+      "sha256": "1d0a26ab6b6849aeaf321beb5050cd6d682b72712be1cf13bad0e270cfd81f06",
+      "bytes": 814652,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "mascots/light/01_mascot_standing.png",
+      "sha256": "8a618497b5ce4e7c0bdcc859809ce06f914303e162472cfbe22edf5cb2edd310",
+      "bytes": 672958,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "mascots/light/02_mascot_waving.png",
+      "sha256": "6235f8e017d2ec82e7f4158fdd20e28d30dfb9de960f302dade69638409307d4",
+      "bytes": 697494,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "mascots/light/03_mascot_holding_photo.png",
+      "sha256": "f38e33d74d5bd23c0a70317b51c73eaea27db29b96b52120e8f953c779bbaf0f",
+      "bytes": 713009,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "mascots/light/04_mascot_zoom.png",
+      "sha256": "441ec1b4f942e40d28109a7d5492774b4f5d115e3fa1259157bc30e36a38c017",
+      "bytes": 752174,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "mascots/light/05_mascot_success.png",
+      "sha256": "fdc07e6574aa0915f11f7440733845097d8464429f5464523529edc794593e15",
+      "bytes": 694209,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "mascots/light/06_mascot_thinking.png",
+      "sha256": "9a753018eefe2dc11b9fe7de62341695389a68e5c758a9e9aae66b5377009455",
+      "bytes": 669295,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "mascots/light/07_mascot_portrait.png",
+      "sha256": "fc9cb1884f16fb2194517b39ef9edfab8303eb9b15a73a951cdffdb8c2cee7de",
+      "bytes": 810016,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "mascots/transparent/01_mascot_standing.png",
+      "sha256": "ebf18e47862fbb4a9053b013d795e9eb9434614c5334e2a58f1d8ee61b197815",
+      "bytes": 778519,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "mascots/transparent/02_mascot_waving.png",
+      "sha256": "2acda6686fc8437db7a9e46257dd0f88ed4d3000ee50ded591d5ad726cbdc6eb",
+      "bytes": 806760,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "mascots/transparent/03_mascot_holding_photo.png",
+      "sha256": "51f4da123fcb00d661321a5a95b977775d4a7b05401f193eaa07d0c14de090b8",
+      "bytes": 823981,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "mascots/transparent/04_mascot_zoom.png",
+      "sha256": "ee467eff695c154c9bff15effa2caa06afe3f784d3509367aa34367006ed208e",
+      "bytes": 877920,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "mascots/transparent/05_mascot_success.png",
+      "sha256": "ff83bc9cb2f5915eda161a4b00c7b56eae3a286bff357c7f21a0d58d4b943ab4",
+      "bytes": 802727,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "mascots/transparent/06_mascot_thinking.png",
+      "sha256": "73aa4d1a6ca93f4bd9cc0f996cfbd8fc78da535ccc7b588ee09af5a6c0a7693e",
+      "bytes": 772016,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "mascots/transparent/07_mascot_portrait.png",
+      "sha256": "719436d02d312997c2cc7d1f5319270d0d55d540687f9b15ad0c8e51743b92df",
+      "bytes": 930083,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "mascots/webp/01_mascot_standing_1024.webp",
+      "sha256": "3dd0ace31059332a607045f7ef8229f2d216bcb8a2d520f2198873221f21adb0",
+      "bytes": 484378,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "mascots/webp/01_mascot_standing_512.webp",
+      "sha256": "2760744c7dcf971d1d9a7cb7b72650aac2db24143f0499909551e0c87ae90ddd",
+      "bytes": 142180,
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "mascots/webp/02_mascot_waving_1024.webp",
+      "sha256": "16ecf35e467b86c0ddc97cbbf278217b6be43deabedcfc0635fabab7078823ac",
+      "bytes": 508408,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "mascots/webp/02_mascot_waving_512.webp",
+      "sha256": "5b4fe6b2582858f141ad3a18ae37f6fe8a5f2a4574128f8f4106611d5acac80f",
+      "bytes": 150220,
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "mascots/webp/03_mascot_holding_photo_1024.webp",
+      "sha256": "49c71361d5128154da875abd179557fe6642119c16c659f01a872d73e8f0476b",
+      "bytes": 515722,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "mascots/webp/03_mascot_holding_photo_512.webp",
+      "sha256": "b3a9a8d554f78cdb6b59ea0addeee4caf076713fd1b7c30b9453abc573bcaf29",
+      "bytes": 157954,
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "mascots/webp/04_mascot_zoom_1024.webp",
+      "sha256": "5619945d41758f42b20c1e3ab5b415ecc6628b0fe2ff6ec128d9c41e4d3902e4",
+      "bytes": 561062,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "mascots/webp/04_mascot_zoom_512.webp",
+      "sha256": "1f1f48b594f6af1e1bba0a4e6e68a089d51d253dda26c993beffd7a231503e0d",
+      "bytes": 165324,
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "mascots/webp/05_mascot_success_1024.webp",
+      "sha256": "b5e69c307dbbdfd841f8aef121e5021e6938c2e002da195692a4503a8777bdf9",
+      "bytes": 505378,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "mascots/webp/05_mascot_success_512.webp",
+      "sha256": "721009f79a14b8d050338c9bcd6aef0b5b48269d486f5e19ef4566d64edb1725",
+      "bytes": 147992,
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "mascots/webp/06_mascot_thinking_1024.webp",
+      "sha256": "5ecb3a34cc83ea6bae8da0cdfc9c6a046b91192da8b0e69f7c2a23ee0486d85e",
+      "bytes": 485194,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "mascots/webp/06_mascot_thinking_512.webp",
+      "sha256": "90b697c362bc990f8528b98f88bf620d452ca1d664c88afc12bd1f289b81fbcb",
+      "bytes": 145234,
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "mascots/webp/07_mascot_portrait_1024.webp",
+      "sha256": "401d5c31240c3a25d4115bc7a82c38e19794305d6c7a5681373d940ea1e5bba0",
+      "bytes": 585714,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "mascots/webp/07_mascot_portrait_512.webp",
+      "sha256": "2fe63745a1c5d4c041bd87f171a8140d291a53338fdccfe6e571c10e275dfb5b",
+      "bytes": 178240,
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "palette.json",
+      "sha256": "574cbfd3d6363ef0c5be533a849eb25314e40f8531d40873e352f8075c2bd892",
+      "bytes": 460
+    },
+    {
+      "path": "previews/app-icon-sheet.png",
+      "sha256": "67954497a9d0da8256a2d658dda68684c9c1845222f6962094a0682fbf1f6613",
+      "bytes": 210615,
+      "dimensions": [
+        1200,
+        650
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "previews/contact-sheet-dark.png",
+      "sha256": "7b9f561795686cee451509929c6261fde1749e107326210b443a984d5142b446",
+      "bytes": 736396,
+      "dimensions": [
+        1640,
+        1010
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "previews/contact-sheet-light.png",
+      "sha256": "40f8338826e10fcfd62a30bcdb9b848926e115e86663f87cd251cff87306708b",
+      "bytes": 728389,
+      "dimensions": [
+        1640,
+        1010
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "previews/ui-icon-sheet.png",
+      "sha256": "5cebbe3969e793b4d0e78f41a8dfe03d271741f4010ebb55afd8efaebd62eabf",
+      "bytes": 51985,
+      "dimensions": [
+        1208,
+        615
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "sources/01_mascot_standing.png",
+      "sha256": "ebf18e47862fbb4a9053b013d795e9eb9434614c5334e2a58f1d8ee61b197815",
+      "bytes": 778519,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "sources/02_mascot_waving.png",
+      "sha256": "2acda6686fc8437db7a9e46257dd0f88ed4d3000ee50ded591d5ad726cbdc6eb",
+      "bytes": 806760,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "sources/03_mascot_holding_photo.png",
+      "sha256": "51f4da123fcb00d661321a5a95b977775d4a7b05401f193eaa07d0c14de090b8",
+      "bytes": 823981,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "sources/04_mascot_zoom.png",
+      "sha256": "ee467eff695c154c9bff15effa2caa06afe3f784d3509367aa34367006ed208e",
+      "bytes": 877920,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "sources/05_mascot_success.png",
+      "sha256": "ff83bc9cb2f5915eda161a4b00c7b56eae3a286bff357c7f21a0d58d4b943ab4",
+      "bytes": 802727,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "sources/06_mascot_thinking.png",
+      "sha256": "73aa4d1a6ca93f4bd9cc0f996cfbd8fc78da535ccc7b588ee09af5a6c0a7693e",
+      "bytes": 772016,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "sources/07_mascot_portrait.png",
+      "sha256": "719436d02d312997c2cc7d1f5319270d0d55d540687f9b15ad0c8e51743b92df",
+      "bytes": 930083,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "theme.css",
+      "sha256": "581f2e3706568b438cb0a0f130e331aa20a16a73672ae75a9515528b03e004aa",
+      "bytes": 683
+    }
+  ]
+}

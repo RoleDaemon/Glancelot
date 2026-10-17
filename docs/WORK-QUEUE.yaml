@@ -1,0 +1,49 @@
+schema: 1
+project: glancelot
+integration_branch: main
+memory_action: act_mvcridmt_bdf1947ea9e7
+tasks:
+  - id: BOOT-01
+    requirements: [SYS-04, SYS-05]
+    owner: lead
+    state: integration
+    outcome: Reproducible native build and isolated agent worktrees
+    base_commit: 88c6abf
+    evidence: Qt 6.8.3 and MSVC2022 found; CMake/Ninja installed project-locally
+  - id: NAV-CORE
+    requirements: [NAV-01, NAV-02, NAV-03, NAV-04, NAV-06, NAV-08]
+    owner: navigation
+    state: implementing
+    depends: [BOOT-01]
+    files: [src/core/navigation.cpp, tests/navigation_tests.cpp]
+    acceptance: Natural folder ordering, forward/reverse landing, roots, links, boundary policies
+  - id: CANVAS-UI
+    requirements: [PERF-01, UX-01, VIEW-01, VIEW-03, VIEW-04, IN-04]
+    owner: canvas
+    state: implementing
+    depends: [BOOT-01]
+    files: [src/render, ui/Main.qml]
+    acceptance: GPU canvas, physical zoom, cursor pan/zoom, loupe, palette, minimal controls
+  - id: DECODE-01
+    requirements: [PERF-04, META-04, SYS-02]
+    owner: lead
+    state: implementing
+    depends: [BOOT-01]
+    files: [src/worker, src/app, app]
+    acceptance: Separate bounded JPEG/PNG decoder, stale-generation rejection, config persistence
+  - id: VERIFY-01
+    requirements: [SYS-05, SYS-06]
+    owner: reviewer
+    state: implementing
+    depends: [NAV-CORE, CANVAS-UI, DECODE-01]
+    acceptance: Independent malformed/source-change/cancellation/navigation/viewport checks
+  - id: ALPHA-PACKAGE
+    requirements: [SYS-04]
+    owner: lead
+    state: ready
+    depends: [VERIFY-01]
+    acceptance: Portable native package runs without Qt development environment
+unverified:
+  - Physical Linux windowing, display profiles, HDR and high-refresh presentation
+  - WSL execution (previous distribution enumeration access denied)
+remaining_waves: [browsing, culling, format_completion, hardening, expansions]
